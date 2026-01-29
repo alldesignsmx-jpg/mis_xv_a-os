@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - Invitación Oficial</title>
+    <title>Mis XV Años - María Paz</title>
+    
+    <meta property="og:title" content="¡Mis XV Años! - María Paz">
+    <meta property="og:description" content="Te invito a celebrar conmigo este momento tan especial. 25 de Abril, 2026.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600"> <meta property="og:url" content="https://tu-usuario.github.io/tu-repo">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- ESTILOS CSS INCORPORADOS --- */
+        /* --- ESTILOS --- */
         :root {
-            --gold: #cfa875; /* Dorado del ejemplo */
+            --gold: #cfa875; 
             --gold-dark: #b08d55;
             --text-main: #4a4a4a;
             --bg-light: #fdfaf6;
@@ -21,154 +27,133 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-body); color: var(--text-main); background-color: var(--bg-light); overflow-x: hidden; }
 
-        body {
-            font-family: var(--font-body);
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            overflow-x: hidden; /* Evita scroll lateral */
-        }
-
-        /* TIPOGRAFÍA */
+        /* Tipografía */
         h1, h2, h3 { font-family: var(--font-title); font-weight: 400; }
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin: 60px 0 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin: 60px 0 30px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* 1. PORTADA (HERO) */
+        /* PORTADA */
         .hero-section {
             height: 100vh;
-            /* FOTO DE PORTADA - CAMBIAR URL */
-            background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1920'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Efecto Parallax */
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1920'); /* CAMBIAR FOTO FONDO */
+            background-size: cover; background-position: center; background-attachment: fixed;
+            position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
-        .overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4);
-        }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
         .hero-content { position: relative; z-index: 2; padding: 20px; }
-        .intro-text { font-family: 'Great Vibes', cursive; font-size: 2rem; color: #fff; margin-bottom: 10px;}
-        .main-title { font-size: 4.5rem; line-height: 1; margin: 10px 0; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .intro-text { font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-bottom: 10px; color: #f0f0f0;}
+        .main-title { font-size: 5rem; line-height: 1; margin: 10px 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero-date { font-size: 1.5rem; letter-spacing: 5px; margin-top: 20px; border-top: 1px solid white; display: inline-block; padding-top: 10px; }
 
-        /* 2. CUENTA REGRESIVA */
+        /* CUENTA REGRESIVA */
         .countdown-section { padding: 50px 20px; background: white; text-align: center; }
-        .countdown-grid { display: flex; justify-content: center; gap: 30px; margin: 30px auto; flex-wrap: wrap; }
-        .time-item span { font-size: 3rem; color: var(--gold); font-family: var(--font-title); display: block; }
-        .time-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-
-        /* 3. TICKET / PASE (Lo que pediste del ejemplo) */
-        .reservation-section { padding: 40px 20px; display: flex; justify-content: center; background: var(--bg-light); }
-        .ticket-container {
-            background: white;
-            border: 2px dashed var(--gold); /* Borde punteado estilo ticket */
-            padding: 40px;
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            position: relative;
+        .countdown-grid { display: flex; justify-content: center; gap: 20px; margin: 30px auto; flex-wrap: wrap; }
+        .time-item { background: var(--bg-light); padding: 15px; min-width: 80px; border-radius: 10px; }
+        .time-item span { font-size: 2.5rem; color: var(--gold); font-family: var(--font-title); display: block; font-weight: bold; }
+        .time-item p { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; margin-top: 5px; }
+        
+        /* 2. MEJORA: BOTÓN CALENDARIO */
+        .btn-calendar {
+            display: inline-flex; align-items: center; margin-top: 20px; padding: 10px 20px; 
+            border: 1px solid var(--gold); color: var(--gold); text-decoration: none; border-radius: 50px; 
+            font-size: 0.9rem; transition: 0.3s;
         }
-        .ticket-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 3px; color: #999; margin-bottom: 20px; }
-        .guest-name { font-size: 2.5rem; color: var(--text-main); margin: 10px 0; font-family: 'Great Vibes', cursive; }
-        .ticket-info { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
-        .ticket-footer { margin-top: 20px; font-size: 0.9rem; color: #777; font-style: italic; }
+        .btn-calendar:hover { background: var(--gold); color: white; }
+        .btn-calendar i { margin-right: 8px; }
 
-        /* 4. CÓDIGO DE VESTIMENTA (GRID) */
+        /* TICKET / PASE GENÉRICO */
+        .reservation-section { padding: 50px 20px; background: var(--bg-light); display: flex; justify-content: center; }
+        .ticket-container {
+            background: white; border: 2px dashed var(--gold); padding: 40px; text-align: center;
+            max-width: 500px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative;
+        }
+        .ticket-header { background: var(--gold); color: white; padding: 10px 20px; display: inline-block; border-radius: 5px; margin-bottom: 20px; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; }
+        .guest-name { font-size: 3rem; color: var(--text-main); margin: 0; font-family: 'Great Vibes', cursive; }
+        .ticket-footer { margin-top: 20px; font-size: 0.85rem; color: #888; font-style: italic; }
+
+        /* VESTIMENTA */
         .dresscode-section { padding: 60px 20px; text-align: center; background: white; }
         .dress-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 30px; }
-        .dress-item { max-width: 200px; }
-        .dress-item i { font-size: 3rem; color: var(--gold); margin-bottom: 15px; }
-        .forbidden-colors { margin-top: 40px; }
-        .color-dot { display: inline-block; width: 30px; height: 30px; border-radius: 50%; margin: 0 5px; border: 1px solid #ddd; vertical-align: middle; }
+        .dress-item i { font-size: 2.5rem; color: var(--gold); margin-bottom: 10px; }
 
-        /* 5. CEREMONIA Y RECEPCIÓN (Tarjetas Horizontales) */
-        .events-section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        /* EVENTOS Y MAPAS */
+        .events-section { padding: 40px 20px; max-width: 1100px; margin: 0 auto; }
         .event-card { 
             display: flex; flex-wrap: wrap; background: white; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 50px; border-radius: 10px; overflow: hidden; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-bottom: 60px; border-radius: 15px; overflow: hidden; 
         }
-        .event-card.reverse { flex-direction: row-reverse; } /* Invierte el orden para la segunda tarjeta */
-        .event-img { flex: 1; min-height: 300px; background-size: cover; background-position: center; min-width: 300px; }
+        .event-card.reverse { flex-direction: row-reverse; }
+        
+        /* 3. MEJORA: MAPAS INCRUSTADOS */
+        .map-container { flex: 1; min-width: 300px; min-height: 350px; }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        
         .event-details { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; text-align: center; min-width: 300px; }
-        .btn-map { 
-            display: inline-block; padding: 10px 25px; border: 1px solid var(--gold); color: var(--gold); 
-            text-decoration: none; margin-top: 20px; border-radius: 50px; transition: 0.3s; 
-        }
-        .btn-map:hover { background: var(--gold); color: white; }
+        .event-icon { font-size: 2rem; color: var(--gold); margin-bottom: 15px; }
 
-        /* 6. ITINERARIO (Línea de tiempo vertical) */
+        /* ITINERARIO */
         .timeline-section { padding: 60px 20px; background: white; }
-        .timeline { 
-            position: relative; max-width: 600px; margin: 0 auto; padding-left: 30px; border-left: 2px solid var(--gold); 
-        }
-        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline { position: relative; max-width: 600px; margin: 0 auto; padding-left: 30px; border-left: 2px solid var(--gold); }
+        .timeline-item { position: relative; margin-bottom: 40px; padding-left: 20px; }
         .timeline-item::before {
-            content: ''; position: absolute; left: -36px; top: 5px; width: 10px; height: 10px; 
-            background: var(--gold); border-radius: 50%; border: 2px solid white;
+            content: ''; position: absolute; left: -37px; top: 5px; width: 12px; height: 12px; 
+            background: var(--gold); border-radius: 50%; border: 3px solid white;
         }
-        .time { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
-        .activity { font-size: 1.5rem; margin: 5px 0; }
+        .time { color: var(--gold); font-weight: bold; font-size: 1.1rem; }
+        .activity { font-size: 1.3rem; margin: 5px 0; font-family: var(--font-title); }
 
-        /* 7. MESA DE REGALOS */
+        /* MESA DE REGALOS */
         .gifts-section { padding: 60px 20px; text-align: center; background: var(--bg-light); }
         .gift-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
         .gift-box { background: white; padding: 30px; width: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        /* 8. NOMBRAMIENTOS */
-        .family-section { padding: 60px 20px; text-align: center; background: white; }
-        .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-        
-        /* 9. GALERÍA */
+        /* GALERÍA */
         .gallery-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; 
             padding: 20px; max-width: 1200px; margin: 0 auto; 
         }
-        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: transform 0.3s; }
-        .gallery-grid img:hover { transform: scale(1.02); }
+        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: transform 0.3s; cursor: pointer; }
+        .gallery-grid img:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-        /* 10. RSVP Y FOOTER */
-        .rsvp-section { background: var(--gold); color: white; padding: 80px 20px; text-align: center; }
+        /* RSVP */
+        .rsvp-section { background: var(--gold); color: white; padding: 100px 20px; text-align: center; position: relative; }
         .btn-whatsapp { 
             background: white; color: var(--gold); padding: 15px 40px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 30px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-flex; align-items: center; margin-top: 30px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: transform 0.2s;
         }
-        footer { background: #333; color: #888; padding: 20px; text-align: center; font-size: 0.8rem; }
+        .btn-whatsapp:hover { transform: translateY(-3px); }
+        .btn-whatsapp i { margin-right: 10px; font-size: 1.5rem; }
 
-        /* BOTÓN MÚSICA */
+        /* 4. MEJORA: HINT DE MÚSICA */
+        .music-wrapper { position: fixed; bottom: 20px; right: 20px; z-index: 999; display: flex; align-items: center; }
+        .music-hint { 
+            background: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-right: 10px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); opacity: 0; animation: fadeInOut 4s infinite; 
+        }
         .music-fab {
-            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; 
-            background: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
-            display: flex; align-items: center; justify-content: center; color: var(--gold); cursor: pointer; z-index: 999;
+            width: 50px; height: 50px; background: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+            display: flex; align-items: center; justify-content: center; color: var(--gold); cursor: pointer; transition: transform 0.2s;
         }
-
-        /* Responsive móvil */
+        .music-fab:active { transform: scale(0.9); }
+        
+        @keyframes fadeInOut { 0%, 100% { opacity: 0; } 20%, 80% { opacity: 1; } }
         @media (max-width: 768px) {
             .main-title { font-size: 3.5rem; }
-            .timeline { padding-left: 20px; border-left: 1px solid var(--gold); }
             .event-card, .event-card.reverse { flex-direction: column; }
-            .event-img { height: 250px; }
+            .map-container { min-height: 250px; }
+            .timeline { padding-left: 20px; border-left: 1px solid var(--gold); }
         }
     </style>
 </head>
 <body>
 
-    <div class="music-fab" onclick="toggleMusic()">
-        <i class="fas fa-play" id="music-icon"></i>
+    <div class="music-wrapper">
+        <span class="music-hint">🎵 Dale Play</span>
+        <div class="music-fab" onclick="toggleMusic()">
+            <i class="fas fa-play" id="music-icon"></i>
+        </div>
     </div>
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -184,29 +169,95 @@
     </header>
 
     <section class="countdown-section">
+        <p data-aos="fade-up">Faltan...</p>
         <div class="countdown-grid" id="countdown">
             <div class="time-item"><span id="days">00</span><p>Días</p></div>
-            <div class="time-item"><span id="hours">00</span><p>Horas</p></div>
-            <div class="time-item"><span id="minutes">00</span><p>Minutos</p></div>
-            <div class="time-item"><span id="seconds">00</span><p>Segundos</p></div>
+            <div class="time-item"><span id="hours">00</span><p>Hrs</p></div>
+            <div class="time-item"><span id="minutes">00</span><p>Min</p></div>
+            <div class="time-item"><span id="seconds">00</span><p>Seg</p></div>
         </div>
-        <p data-aos="fade-up" style="max-width: 600px; margin: 0 auto; line-height: 1.8;">
-            Hay momentos inolvidables que se atesoran en el corazón para siempre, por eso quiero que compartas conmigo este día tan especial.
+        
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+María+Paz&dates=20260425T170000/20260426T020000" target="_blank" class="btn-calendar" data-aos="fade-up">
+            <i class="far fa-calendar-plus"></i> Agendar en Google Calendar
+        </a>
+        
+        <p style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;" data-aos="fade-up">
+            "Hay momentos inolvidables que se atesoran en el corazón para siempre, por eso quiero que compartas conmigo este día tan especial."
         </p>
     </section>
 
     <section class="reservation-section" data-aos="flip-up">
         <div class="ticket-container">
-            <div class="ticket-title">Pase de Entrada</div>
-            <h3 class="guest-name">Familia Pérez</h3> <p class="ticket-info">4 Boletos</p>
-            <p class="ticket-info">Mesa 5</p>
-            <p class="ticket-footer">* Este pase es personal e intransferible. Favor de presentarlo en la entrada.</p>
+            <div class="ticket-header">INVITACIÓN PERSONAL</div>
+            <h3 class="guest-name">Pase de Entrada</h3>
+            <p style="margin: 20px 0; font-size: 1.1rem;">¡Eres un invitado especial!</p>
+            <div style="border-top: 1px dashed #ddd; margin: 20px 0;"></div>
+            <p class="ticket-footer">Nos encantará contar con tu presencia. Por favor confirma tu asistencia.</p>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="event-card" data-aos="fade-right">
+            <div class="event-details">
+                <i class="fas fa-church event-icon"></i>
+                <h3>Ceremonia Religiosa</h3>
+                <p class="time">17:00 HRS</p>
+                <p>Parroquia de San Agustín</p>
+                <p style="font-size: 0.9rem; color: #777; margin-bottom: 20px;">Av. Horacio 921, Polanco</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661646820387!2d-99.1955!3d19.4326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2020256037c05%3A0x62848525d88667!2sParroquia%20de%20San%20Agust%C3%ADn!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="event-card reverse" data-aos="fade-left">
+            <div class="event-details">
+                <i class="fas fa-glass-cheers event-icon"></i>
+                <h3>Recepción</h3>
+                <p class="time">20:00 HRS</p>
+                <p>Salón "El Ensueño"</p>
+                <p style="font-size: 0.9rem; color: #777; margin-bottom: 20px;">Av. Reforma 276, CDMX</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5!2d-99.16!3d19.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI1JzQ4LjAiTiA5OcKwMDknMzYuMCJX!5e0!3m2!1ses!2smx!4v1600000000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2 class="section-title" data-aos="zoom-in">Itinerario</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">5:00 PM</div>
+                <div class="activity">Ceremonia</div>
+                <p>Misa de acción de gracias.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">7:00 PM</div>
+                <div class="activity">Recepción</div>
+                <p>Cóctel de bienvenida y fotos.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">8:00 PM</div>
+                <div class="activity">Cena</div>
+                <p>Disfruta de una cena de tres tiempos.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">9:00 PM</div>
+                <div class="activity">Vals</div>
+                <p>El momento más emotivo de la noche.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">02:00 AM</div>
+                <div class="activity">Fin del Evento</div>
+                <p>¡Gracias por acompañarnos!</p>
+            </div>
         </div>
     </section>
 
     <section class="dresscode-section" data-aos="fade-up">
         <h2 class="section-title">Código de Vestimenta</h2>
-        <p>Formal Riguroso</p>
+        <p style="margin-bottom: 30px; font-weight: bold;">FORMAL RIGUROSO</p>
         <div class="dress-grid">
             <div class="dress-item">
                 <i class="fas fa-female"></i>
@@ -219,64 +270,10 @@
                 <p>Traje y Corbata</p>
             </div>
         </div>
-        <div class="forbidden-colors">
-            <p style="margin-bottom: 10px;">Colores reservados (No usar):</p>
-            <span class="color-dot" style="background: pink;"></span>
-            <span class="color-dot" style="background: white;"></span>
-        </div>
-    </section>
-
-    <section class="events-section">
-        <div class="event-card" data-aos="fade-right">
-            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1548625361-1979d02df752?q=80&w=800');"></div>
-            <div class="event-details">
-                <h3>Ceremonia Religiosa</h3>
-                <p class="time">17:00 HRS</p>
-                <p>Parroquia San Agustín</p>
-                <p style="font-size: 0.9rem; color: #777;">Av. Principal #123, Centro</p>
-                <a href="#" class="btn-map">Ver Mapa</a>
-            </div>
-        </div>
-        <div class="event-card reverse" data-aos="fade-left">
-            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800');"></div>
-            <div class="event-details">
-                <h3>Recepción</h3>
-                <p class="time">20:00 HRS</p>
-                <p>Salón "El Ensueño"</p>
-                <p style="font-size: 0.9rem; color: #777;">Calle Las Rosas #450</p>
-                <a href="#" class="btn-map">Ver Mapa</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="timeline-section">
-        <h2 class="section-title" data-aos="zoom-in">Itinerario</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="time">5:00 PM</div>
-                <div class="activity">Ceremonia Religiosa</div>
-                <p>Acompáñanos a recibir la bendición.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="time">7:00 PM</div>
-                <div class="activity">Recepción</div>
-                <p>Bienvenida a los invitados y fotos.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="time">8:00 PM</div>
-                <div class="activity">Cena</div>
-                <p>Disfruta de una deliciosa cena.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="time">9:00 PM</div>
-                <div class="activity">Vals</div>
-                <p>Nuestro primer baile.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="time">02:00 AM</div>
-                <div class="activity">Fin del Evento</div>
-                <p>Gracias por acompañarnos.</p>
-            </div>
+        <div style="margin-top: 40px;">
+            <p>Colores reservados:</p>
+            <span style="display:inline-block; width:30px; height:30px; background:pink; border-radius:50%; margin:5px; border:1px solid #ddd;"></span>
+            <span style="display:inline-block; width:30px; height:30px; background:white; border-radius:50%; margin:5px; border:1px solid #ddd;"></span>
         </div>
     </section>
 
@@ -286,61 +283,67 @@
             <div class="gift-box">
                 <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                 <h3>Lluvia de Sobres</h3>
-                <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle, habrá un buzón en la entrada.</p>
+                <p>Habrá un buzón en la recepción para sus obsequios.</p>
             </div>
             <div class="gift-box">
                 <i class="fas fa-university" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                 <h3>Transferencia</h3>
-                <p>BBVA: 1234 5678 9012</p>
-                <p>Concepto: Regalo XV</p>
+                <p><strong>Banco:</strong> BBVA</p>
+                <p><strong>Cuenta:</strong> 1234 5678 9012</p>
+                <p><strong>Titular:</strong> María Paz</p>
             </div>
         </div>
     </section>
 
-    <section class="family-section" data-aos="fade-up">
+    <section style="padding: 60px 20px; text-align: center; background: white;" data-aos="fade-up">
         <h2 class="section-title">Con la bendición de</h2>
-        <div class="family-grid">
+        <div style="display:flex; justify-content:center; gap:50px; flex-wrap:wrap;">
             <div>
-                <h3>Mis Padres</h3>
+                <h3 style="color:var(--text-main); margin-bottom:10px;">Mis Padres</h3>
                 <p>Juan Pérez</p>
                 <p>Ana López</p>
             </div>
             <div>
-                <h3>Mis Padrinos</h3>
+                <h3 style="color:var(--text-main); margin-bottom:10px;">Mis Padrinos</h3>
                 <p>Carlos Ruiz</p>
                 <p>Diana Gómez</p>
             </div>
         </div>
     </section>
 
-    <section style="background: white;">
-        <h2 class="section-title">Nuestros Momentos</h2>
+    <section style="background: var(--bg-light); padding-bottom: 50px;">
+        <h2 class="section-title">Mis Momentos</h2>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400" alt="Foto">
-            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400" alt="Foto">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400" alt="Foto">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400" alt="Foto">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400" alt="Foto 1">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400" alt="Foto 2">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400" alt="Foto 3">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400" alt="Foto 4">
         </div>
     </section>
 
     <section class="rsvp-section">
-        <h2 style="color: white; font-size: 3rem;">Confirmar Asistencia</h2>
+        <h2 style="color: white; font-size: 3rem; margin-bottom: 20px;">Confirmar Asistencia</h2>
         <p>Por favor confirma tu lugar antes del 15 de Abril.</p>
-        <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia" class="btn-whatsapp" target="_blank">
+        
+        <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Maria%20Paz" class="btn-whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i> Enviar Confirmación
         </a>
+
+        <div style="margin-top: 60px; font-style: italic; font-size: 0.9rem; opacity: 0.8;">
+            "La vida es un sueño hecho realidad cuando la compartes con quienes amas."
+        </div>
     </section>
 
     <footer>
-        <p>Hecho con cariño para los XV de María Paz | 2026</p>
+        <p>Mis XV Años - María Paz | 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // INICIAR ANIMACIONES
+        // Iniciar Animaciones
         AOS.init({ duration: 1000, once: true });
 
-        // CUENTA REGRESIVA (Configura tu fecha aquí)
+        // --- CONFIGURACIÓN DE FECHA ---
         const eventDate = new Date("April 25, 2026 17:00:00").getTime();
 
         const timer = setInterval(function() {
@@ -363,20 +366,23 @@
             }
         }, 1000);
 
-        // MÚSICA
+        // --- CONTROL DE MÚSICA ---
         let isPlaying = false;
         const audio = document.getElementById("bg-music");
         const icon = document.getElementById("music-icon");
+        const hint = document.querySelector(".music-hint");
 
         function toggleMusic() {
             if (isPlaying) {
                 audio.pause();
                 icon.classList.remove("fa-pause");
                 icon.classList.add("fa-play");
+                hint.style.display = "block"; // Mostrar pista si se pausa
             } else {
                 audio.play();
                 icon.classList.remove("fa-play");
                 icon.classList.add("fa-pause");
+                hint.style.display = "none"; // Ocultar pista al reproducir
             }
             isPlaying = !isPlaying;
         }
