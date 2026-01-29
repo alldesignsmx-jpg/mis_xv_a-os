@@ -1,48 +1,50 @@
-// 1. Inicializar animaciones (AOS)
+// Inicializar AOS (Animaciones al hacer scroll)
 AOS.init({
-    once: true, // La animación solo pasa una vez
-    offset: 100, // Empieza un poco antes de llegar al elemento
+    duration: 1000, // Duración de la animación en milisegundos
+    once: true, // Que solo se anime una vez al bajar
+    offset: 100 // Distancia antes de activar
 });
 
-// 2. Configuración de Cuenta Regresiva
-// CAMBIAR: POR LA FECHA DE TUS XV
-const eventDate = new Date("April 25, 2026 17:00:00").getTime();
+// CUENTA REGRESIVA
+const eventDate = new Date("April 25, 2026 17:00:00").getTime(); // <--- CAMBIAR FECHA AQUÍ
 
 const timer = setInterval(function() {
     const now = new Date().getTime();
     const distance = eventDate - now;
 
-    // Cálculos de tiempo
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Insertar en el HTML
-    document.getElementById("days").innerHTML = days < 10 ? '0'+days : days;
-    document.getElementById("hours").innerHTML = hours < 10 ? '0'+hours : hours;
-    document.getElementById("minutes").innerHTML = minutes < 10 ? '0'+minutes : minutes;
-    document.getElementById("seconds").innerHTML = seconds < 10 ? '0'+seconds : seconds;
+    document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+    document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
 
-    // Cuando termina la cuenta regresiva
     if (distance < 0) {
         clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "¡ES HOY!";
+        document.getElementById("countdown").innerHTML = "<h2>¡ES HOY!</h2>";
     }
 }, 1000);
 
-// 3. Control de Música
-const music = document.getElementById("bg-music");
-const musicIcon = document.getElementById("music-icon");
+// CONTROL DE MÚSICA
+const musicBtn = document.getElementById('music-btn');
+const musicIcon = document.getElementById('music-icon');
+const audio = document.getElementById('bg-music');
+let isPlaying = false;
 
 function toggleMusic() {
-    if (music.paused) {
-        music.play();
-        musicIcon.classList.remove("fa-play");
-        musicIcon.classList.add("fa-pause");
+    if (isPlaying) {
+        audio.pause();
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-play');
+        document.querySelector('.music-label').innerText = "Dale play";
     } else {
-        music.pause();
-        musicIcon.classList.remove("fa-pause");
-        musicIcon.classList.add("fa-music");
+        audio.play().catch(e => console.log("Interacción requerida para reproducir audio"));
+        musicIcon.classList.remove('fa-play');
+        musicIcon.classList.add('fa-pause');
+        document.querySelector('.music-label').innerText = "Sonando...";
     }
+    isPlaying = !isPlaying;
 }
