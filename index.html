@@ -122,10 +122,10 @@
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
         }
-        /* Línea Central */
+        /* LÍNEA PC */
         .timeline::after {
             content: ''; position: absolute; width: 2px; background-color: var(--lilac-light);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0; /* Z-INDEX BAJO */
+            top: 0; bottom: 0; left: 50%; margin-left: -1px;
         }
         .timeline-item {
             padding: 10px 40px; position: relative; background-color: transparent; width: 50%;
@@ -134,10 +134,10 @@
         .timeline-item.left { left: 0; text-align: right; }
         .timeline-item.right { left: 50%; text-align: left; }
         
-        /* Puntos */
+        /* Puntos PC */
         .timeline-item::after {
             content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: white;
-            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 1;
+            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 10;
         }
         .timeline-item.right::after { left: -8px; }
 
@@ -216,35 +216,52 @@
             .section-title { font-size: 1.8rem; }
             .event-card, .event-card.reverse { flex-direction: column; }
             
-            /* --- SOLUCIÓN DEFINITIVA LÍNEA ITINERARIO --- */
-            .timeline::after { left: 50%; margin-left: -1px; z-index: 0; }
+            /* --- SOLUCIÓN: LÍNEA DISCONTINUA POR CÓDIGO --- */
+            /* En móvil, eliminamos la línea central gigante */
+            .timeline::after { display: none; }
+            
+            /* Creamos una línea pequeña SOLO entre los elementos */
             .timeline-item { 
                 width: 100%; 
-                padding-left: 0; padding-right: 0; 
-                padding-top: 40px; 
-                text-align: center; 
+                padding: 0; 
+                text-align: center;
+                margin-bottom: 0; /* Sin margen para conectar */
+                position: relative;
+                padding-bottom: 40px; /* Espacio para la línea */
             }
             .timeline-item.left, .timeline-item.right { text-align: center; left: 0; }
             
+            /* Punto arriba */
             .timeline-item::after { 
-                left: 50%; 
-                margin-left: -11px;
-                top: 0; 
-                right: auto;
-                z-index: 5;
-            }
-            .timeline-item.right::after { left: 50%; }
-
-            /* EL FIX: FONDO BLANCO SÓLIDO PARA TAPAR LA LÍNEA */
-            .tl-time, .tl-content h4 {
-                background-color: #ffffff; /* FONDOS BLANCO */
+                content: '';
                 position: relative;
-                z-index: 10; /* ARRIBA DE LA LÍNEA */
-                display: inline-block;
-                padding: 0 10px; /* RELLENO PARA TAPAR LA LÍNEA A LOS LADOS */
+                display: block;
+                width: 16px; height: 16px; 
+                background: white; 
+                border: 3px solid var(--lilac-main);
+                border-radius: 50%;
+                margin: 0 auto 15px auto; /* Centrado y espacio abajo */
+                top: 0; left: 0; right: 0;
+                z-index: 2;
             }
-            
-            .tl-time { margin-bottom: 5px; }
+
+            /* Línea conectora DEBAJO del texto hacia el siguiente */
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                top: 20px; /* Empieza debajo del punto */
+                bottom: -20px; /* Llega hasta el siguiente */
+                left: 50%;
+                width: 2px;
+                background-color: var(--lilac-light);
+                z-index: 0;
+            }
+            /* El último elemento no lleva línea hacia abajo */
+            .timeline-item:last-child::before { display: none; }
+
+            /* Texto */
+            .tl-time { display: block; margin-bottom: 5px; background: white; position: relative; z-index: 1; }
+            .tl-content h4 { background: white; position: relative; z-index: 1; }
         }
     </style>
 </head>
@@ -318,19 +335,19 @@
         <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
         <div class="timeline">
             <div class="timeline-item left" data-aos="fade-right">
-                <div class="tl-time">5:00 PM</div>
+                <span class="tl-time">5:00 PM</span>
                 <div class="tl-content"><h4>Misa</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <div class="tl-time">8:00 PM</div>
+                <span class="tl-time">8:00 PM</span>
                 <div class="tl-content"><h4>Recepción</h4></div>
             </div>
             <div class="timeline-item left" data-aos="fade-right">
-                <div class="tl-time">9:00 PM</div>
+                <span class="tl-time">9:00 PM</span>
                 <div class="tl-content"><h4>Vals</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <div class="tl-time">10:00 PM</div>
+                <span class="tl-time">10:00 PM</span>
                 <div class="tl-content"><h4>Fiesta</h4></div>
             </div>
         </div>
