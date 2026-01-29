@@ -3,19 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - Invitación</title>
+    <title>Mis XV Años - Invitación Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- ESTILOS CSS INCORPORADOS --- */
+        :root {
+            --gold: #cfa875; /* Dorado del ejemplo */
+            --gold-dark: #b08d55;
+            --text-main: #4a4a4a;
+            --bg-light: #fdfaf6;
+            --white: #ffffff;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            overflow-x: hidden; /* Evita scroll lateral */
+        }
+
+        /* TIPOGRAFÍA */
+        h1, h2, h3 { font-family: var(--font-title); font-weight: 400; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin: 60px 0 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 1. PORTADA (HERO) */
+        .hero-section {
+            height: 100vh;
+            /* FOTO DE PORTADA - CAMBIAR URL */
+            background-image: url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1920'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efecto Parallax */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+        }
+        .hero-content { position: relative; z-index: 2; padding: 20px; }
+        .intro-text { font-family: 'Great Vibes', cursive; font-size: 2rem; color: #fff; margin-bottom: 10px;}
+        .main-title { font-size: 4.5rem; line-height: 1; margin: 10px 0; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-date { font-size: 1.5rem; letter-spacing: 5px; margin-top: 20px; border-top: 1px solid white; display: inline-block; padding-top: 10px; }
+
+        /* 2. CUENTA REGRESIVA */
+        .countdown-section { padding: 50px 20px; background: white; text-align: center; }
+        .countdown-grid { display: flex; justify-content: center; gap: 30px; margin: 30px auto; flex-wrap: wrap; }
+        .time-item span { font-size: 3rem; color: var(--gold); font-family: var(--font-title); display: block; }
+        .time-item p { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+
+        /* 3. TICKET / PASE (Lo que pediste del ejemplo) */
+        .reservation-section { padding: 40px 20px; display: flex; justify-content: center; background: var(--bg-light); }
+        .ticket-container {
+            background: white;
+            border: 2px dashed var(--gold); /* Borde punteado estilo ticket */
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .ticket-title { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 3px; color: #999; margin-bottom: 20px; }
+        .guest-name { font-size: 2.5rem; color: var(--text-main); margin: 10px 0; font-family: 'Great Vibes', cursive; }
+        .ticket-info { font-size: 1.1rem; margin: 5px 0; font-weight: 600; }
+        .ticket-footer { margin-top: 20px; font-size: 0.9rem; color: #777; font-style: italic; }
+
+        /* 4. CÓDIGO DE VESTIMENTA (GRID) */
+        .dresscode-section { padding: 60px 20px; text-align: center; background: white; }
+        .dress-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 30px; }
+        .dress-item { max-width: 200px; }
+        .dress-item i { font-size: 3rem; color: var(--gold); margin-bottom: 15px; }
+        .forbidden-colors { margin-top: 40px; }
+        .color-dot { display: inline-block; width: 30px; height: 30px; border-radius: 50%; margin: 0 5px; border: 1px solid #ddd; vertical-align: middle; }
+
+        /* 5. CEREMONIA Y RECEPCIÓN (Tarjetas Horizontales) */
+        .events-section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        .event-card { 
+            display: flex; flex-wrap: wrap; background: white; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 50px; border-radius: 10px; overflow: hidden; 
+        }
+        .event-card.reverse { flex-direction: row-reverse; } /* Invierte el orden para la segunda tarjeta */
+        .event-img { flex: 1; min-height: 300px; background-size: cover; background-position: center; min-width: 300px; }
+        .event-details { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; text-align: center; min-width: 300px; }
+        .btn-map { 
+            display: inline-block; padding: 10px 25px; border: 1px solid var(--gold); color: var(--gold); 
+            text-decoration: none; margin-top: 20px; border-radius: 50px; transition: 0.3s; 
+        }
+        .btn-map:hover { background: var(--gold); color: white; }
+
+        /* 6. ITINERARIO (Línea de tiempo vertical) */
+        .timeline-section { padding: 60px 20px; background: white; }
+        .timeline { 
+            position: relative; max-width: 600px; margin: 0 auto; padding-left: 30px; border-left: 2px solid var(--gold); 
+        }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -36px; top: 5px; width: 10px; height: 10px; 
+            background: var(--gold); border-radius: 50%; border: 2px solid white;
+        }
+        .time { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+        .activity { font-size: 1.5rem; margin: 5px 0; }
+
+        /* 7. MESA DE REGALOS */
+        .gifts-section { padding: 60px 20px; text-align: center; background: var(--bg-light); }
+        .gift-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .gift-box { background: white; padding: 30px; width: 300px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        /* 8. NOMBRAMIENTOS */
+        .family-section { padding: 60px 20px; text-align: center; background: white; }
+        .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+        
+        /* 9. GALERÍA */
+        .gallery-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px; 
+            padding: 20px; max-width: 1200px; margin: 0 auto; 
+        }
+        .gallery-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; transition: transform 0.3s; }
+        .gallery-grid img:hover { transform: scale(1.02); }
+
+        /* 10. RSVP Y FOOTER */
+        .rsvp-section { background: var(--gold); color: white; padding: 80px 20px; text-align: center; }
+        .btn-whatsapp { 
+            background: white; color: var(--gold); padding: 15px 40px; border-radius: 50px; 
+            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 30px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        footer { background: #333; color: #888; padding: 20px; text-align: center; font-size: 0.8rem; }
+
+        /* BOTÓN MÚSICA */
+        .music-fab {
+            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; 
+            background: white; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+            display: flex; align-items: center; justify-content: center; color: var(--gold); cursor: pointer; z-index: 999;
+        }
+
+        /* Responsive móvil */
+        @media (max-width: 768px) {
+            .main-title { font-size: 3.5rem; }
+            .timeline { padding-left: 20px; border-left: 1px solid var(--gold); }
+            .event-card, .event-card.reverse { flex-direction: column; }
+            .event-img { height: 250px; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="music-control-container">
-        <button id="music-btn" onclick="toggleMusic()">
-            <i class="fas fa-play" id="music-icon"></i>
-        </button>
-        <span class="music-label">Dale play</span>
+    <div class="music-fab" onclick="toggleMusic()">
+        <i class="fas fa-play" id="music-icon"></i>
     </div>
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -24,159 +177,122 @@
     <header class="hero-section">
         <div class="overlay"></div>
         <div class="hero-content" data-aos="zoom-in" data-aos-duration="1500">
-            <p class="intro-text">¡Mis XV Años!</p>
+            <p class="intro-text">Mis XV Años</p>
             <h1 class="main-title">María Paz</h1>
-            <div class="divider-line"></div>
-            <p class="hero-date">25 . 04 . 2026</p>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <span class="hero-date">25 . 04 . 2026</span>
         </div>
     </header>
 
     <section class="countdown-section">
-        <div class="container">
-            <div class="countdown-grid" id="countdown">
-                <div class="time-item"><span id="days">00</span><p>Días</p></div>
-                <div class="time-item"><span id="hours">00</span><p>Hrs</p></div>
-                <div class="time-item"><span id="minutes">00</span><p>Min</p></div>
-                <div class="time-item"><span id="seconds">00</span><p>Seg</p></div>
-            </div>
-            <div class="welcome-text" data-aos="fade-up">
-                <h2>Te Esperamos</h2>
-                <p>Queridos amigos y familiares, los invito a celebrar conmigo este día tan soñado. ¡Quiero compartir con ustedes este momento único e inolvidable!</p>
-            </div>
+        <div class="countdown-grid" id="countdown">
+            <div class="time-item"><span id="days">00</span><p>Días</p></div>
+            <div class="time-item"><span id="hours">00</span><p>Horas</p></div>
+            <div class="time-item"><span id="minutes">00</span><p>Minutos</p></div>
+            <div class="time-item"><span id="seconds">00</span><p>Segundos</p></div>
         </div>
+        <p data-aos="fade-up" style="max-width: 600px; margin: 0 auto; line-height: 1.8;">
+            Hay momentos inolvidables que se atesoran en el corazón para siempre, por eso quiero que compartas conmigo este día tan especial.
+        </p>
     </section>
 
-    <section class="reservation-section" data-aos="fade-up">
+    <section class="reservation-section" data-aos="flip-up">
         <div class="ticket-container">
-            <div class="ticket-header">RESERVACIÓN</div>
-            <div class="ticket-body">
-                <h3 class="guest-name">Familia Pérez López</h3> <p class="ticket-details">4 boletos (2 adultos y 2 niños)</p>
-                <p class="ticket-table">Mesa 5</p>
-                <div class="ticket-note">* Pase personal e intransferible</div>
-                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Años&dates=20260425T170000/20260426T020000" target="_blank" class="calendar-btn">
-                    <i class="far fa-calendar-plus"></i> Añadir a mi calendario
-                </a>
-            </div>
+            <div class="ticket-title">Pase de Entrada</div>
+            <h3 class="guest-name">Familia Pérez</h3> <p class="ticket-info">4 Boletos</p>
+            <p class="ticket-info">Mesa 5</p>
+            <p class="ticket-footer">* Este pase es personal e intransferible. Favor de presentarlo en la entrada.</p>
         </div>
     </section>
 
-    <section class="dresscode-section">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">Código de Vestimenta</h2>
-            <p class="dress-subtitle">Formal Riguroso</p>
-            
-            <div class="dress-grid">
-                <div class="dress-item">
-                    <div class="dress-icon"><i class="fas fa-female"></i></div>
-                    <h3>Mujeres</h3>
-                    <p>Vestido Largo</p>
-                    <p class="dress-note">(Evitar color rosa)</p>
-                </div>
-                <div class="dress-item">
-                    <div class="dress-icon"><i class="fas fa-male"></i></div>
-                    <h3>Hombres</h3>
-                    <p>Traje y Corbata</p>
-                </div>
+    <section class="dresscode-section" data-aos="fade-up">
+        <h2 class="section-title">Código de Vestimenta</h2>
+        <p>Formal Riguroso</p>
+        <div class="dress-grid">
+            <div class="dress-item">
+                <i class="fas fa-female"></i>
+                <h3>Mujeres</h3>
+                <p>Vestido Largo</p>
             </div>
-            
-            <div class="forbidden-colors">
-                <p>Colores reservados:</p>
-                <div class="color-circle" style="background:#ffc0cb;"></div>
-                <div class="color-circle" style="background:white; border:1px solid #ddd;"></div>
+            <div class="dress-item">
+                <i class="fas fa-male"></i>
+                <h3>Hombres</h3>
+                <p>Traje y Corbata</p>
             </div>
+        </div>
+        <div class="forbidden-colors">
+            <p style="margin-bottom: 10px;">Colores reservados (No usar):</p>
+            <span class="color-dot" style="background: pink;"></span>
+            <span class="color-dot" style="background: white;"></span>
         </div>
     </section>
 
     <section class="events-section">
-        
-        <div class="event-block" data-aos="fade-right">
-            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1548625361-1979d02df752?auto=format&fit=crop&q=80');"></div>
-            <div class="event-info">
-                <h3>Ceremonia</h3>
-                <p class="place">Parroquia San Agustín</p>
-                <p class="address">Av. Horacio 921, Polanco, CDMX</p>
-                <p class="time">5:30 PM</p>
-                <a href="#" class="map-btn">Ver Mapa</a>
+        <div class="event-card" data-aos="fade-right">
+            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1548625361-1979d02df752?q=80&w=800');"></div>
+            <div class="event-details">
+                <h3>Ceremonia Religiosa</h3>
+                <p class="time">17:00 HRS</p>
+                <p>Parroquia San Agustín</p>
+                <p style="font-size: 0.9rem; color: #777;">Av. Principal #123, Centro</p>
+                <a href="#" class="btn-map">Ver Mapa</a>
             </div>
         </div>
-
-        <div class="event-block reverse" data-aos="fade-left">
-            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80');"></div>
-            <div class="event-info">
+        <div class="event-card reverse" data-aos="fade-left">
+            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800');"></div>
+            <div class="event-details">
                 <h3>Recepción</h3>
-                <p class="place">Salón "El Ensueño"</p>
-                <p class="address">Av. Reforma 276, CDMX</p>
-                <p class="time">8:00 PM</p>
-                <a href="#" class="map-btn">Ver Mapa</a>
+                <p class="time">20:00 HRS</p>
+                <p>Salón "El Ensueño"</p>
+                <p style="font-size: 0.9rem; color: #777;">Calle Las Rosas #450</p>
+                <a href="#" class="btn-map">Ver Mapa</a>
             </div>
         </div>
-
     </section>
 
-    <section class="timeline-section" data-aos="fade-up">
-        <h2 class="section-title">Itinerario</h2>
+    <section class="timeline-section">
+        <h2 class="section-title" data-aos="zoom-in">Itinerario</h2>
         <div class="timeline">
-            
-            <div class="timeline-item">
-                <div class="timeline-time">5:00 PM</div>
-                <div class="timeline-content">
-                    <h3>Ceremonia</h3>
-                    <p>¡Acompáñanos a recibir la bendición!</p>
-                </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">5:00 PM</div>
+                <div class="activity">Ceremonia Religiosa</div>
+                <p>Acompáñanos a recibir la bendición.</p>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-time">7:00 PM</div>
-                <div class="timeline-content">
-                    <h3>Recepción</h3>
-                    <p>¡Tómate fotos con nosotros!</p>
-                </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">7:00 PM</div>
+                <div class="activity">Recepción</div>
+                <p>Bienvenida a los invitados y fotos.</p>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-time">8:00 PM</div>
-                <div class="timeline-content">
-                    <h3>Cena</h3>
-                    <p>Disfruta de una deliciosa cena.</p>
-                </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">8:00 PM</div>
+                <div class="activity">Cena</div>
+                <p>Disfruta de una deliciosa cena.</p>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-time">9:00 PM</div>
-                <div class="timeline-content">
-                    <h3>Vals</h3>
-                    <p>Nuestro primer baile.</p>
-                </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">9:00 PM</div>
+                <div class="activity">Vals</div>
+                <p>Nuestro primer baile.</p>
             </div>
-
-            <div class="timeline-item">
-                <div class="timeline-time">2:00 AM</div>
-                <div class="timeline-content">
-                    <h3>Fin</h3>
-                    <p>Gracias por estar con nosotros.</p>
-                </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="time">02:00 AM</div>
+                <div class="activity">Fin del Evento</div>
+                <p>Gracias por acompañarnos.</p>
             </div>
-
         </div>
-        <p class="punctuality-note">Se agradece su puntualidad.</p>
     </section>
 
-    <section class="gifts-section" data-aos="zoom-in">
+    <section class="gifts-section" data-aos="fade-up">
         <h2 class="section-title">Mesa de Regalos</h2>
-        <div class="gift-grid">
-            <div class="gift-card">
-                <i class="fas fa-envelope-open-text"></i>
+        <div class="gift-container">
+            <div class="gift-box">
+                <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                 <h3>Lluvia de Sobres</h3>
-                <p>Contaremos con un buzón para sobres en la recepción.</p>
+                <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle, habrá un buzón en la entrada.</p>
             </div>
-            <div class="gift-card">
-                <i class="fas fa-university"></i>
+            <div class="gift-box">
+                <i class="fas fa-university" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
                 <h3>Transferencia</h3>
                 <p>BBVA: 1234 5678 9012</p>
-                <p>A nombre de: María Paz</p>
+                <p>Concepto: Regalo XV</p>
             </div>
         </div>
     </section>
@@ -184,57 +300,86 @@
     <section class="family-section" data-aos="fade-up">
         <h2 class="section-title">Con la bendición de</h2>
         <div class="family-grid">
-            <div class="family-group">
+            <div>
                 <h3>Mis Padres</h3>
-                <p>Juan Pérez & Ana López</p>
+                <p>Juan Pérez</p>
+                <p>Ana López</p>
             </div>
-            <div class="family-group">
+            <div>
                 <h3>Mis Padrinos</h3>
-                <p>Carlos Ruiz & Diana Gómez</p>
+                <p>Carlos Ruiz</p>
+                <p>Diana Gómez</p>
             </div>
         </div>
     </section>
 
-    <section class="gallery-section">
+    <section style="background: white;">
         <h2 class="section-title">Nuestros Momentos</h2>
-        <div class="gallery-container">
-            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" alt="Foto 1" data-aos="flip-left">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" alt="Foto 2" data-aos="flip-right">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80" alt="Foto 3" data-aos="flip-left">
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400" alt="Foto">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400" alt="Foto">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400" alt="Foto">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400" alt="Foto">
         </div>
     </section>
 
-    <section class="hotel-section" data-aos="fade-up">
-        <h2 class="section-title">Hospedaje Sugerido</h2>
-        <div class="hotel-card">
-            <h3>Hotel Marriot</h3>
-            <p>Av. Reforma 276, CDMX</p>
-            <p class="hotel-code">Código: MISXV2026</p>
-            <a href="#" class="map-btn small">Ver Ubicación</a>
-        </div>
-    </section>
-
-    <section class="rsvp-final">
-        <div class="content">
-            <h2 data-aos="fade-down">Confirmar Asistencia</h2>
-            <p>Por favor confirma antes del 5 de Abril.</p>
-            
-            <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia" class="whatsapp-btn big-btn">
-                <i class="fab fa-whatsapp"></i> Enviar Confirmación
-            </a>
-            
-            <div class="quote-final">
-                <p>“There is no remedy for love but to love more.”</p>
-                <span>– Henry David Thoreau</span>
-            </div>
-        </div>
+    <section class="rsvp-section">
+        <h2 style="color: white; font-size: 3rem;">Confirmar Asistencia</h2>
+        <p>Por favor confirma tu lugar antes del 15 de Abril.</p>
+        <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia" class="btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Enviar Confirmación
+        </a>
     </section>
 
     <footer>
-        <p>Mis XV Años | María Paz 2026</p>
+        <p>Hecho con cariño para los XV de María Paz | 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // INICIAR ANIMACIONES
+        AOS.init({ duration: 1000, once: true });
+
+        // CUENTA REGRESIVA (Configura tu fecha aquí)
+        const eventDate = new Date("April 25, 2026 17:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h2>¡ES HOY!</h2>";
+            }
+        }, 1000);
+
+        // MÚSICA
+        let isPlaying = false;
+        const audio = document.getElementById("bg-music");
+        const icon = document.getElementById("music-icon");
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                icon.classList.remove("fa-pause");
+                icon.classList.add("fa-play");
+            } else {
+                audio.play();
+                icon.classList.remove("fa-play");
+                icon.classList.add("fa-pause");
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
 </body>
 </html>
