@@ -36,7 +36,7 @@
         /* TIPOGRAFÍA */
         h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: 1px; }
         
-        /* CORRECCIÓN ROMBO: CSS PURO (Cuadrado rotado) PARA EVITAR EMOJI ROJO */
+        /* CORRECCIÓN ROMBO: CSS PURO COLOR LILA */
         .section-title {
             text-align: center; font-size: 2.2rem; color: var(--lilac-dark); margin: 70px 0 30px;
             text-transform: uppercase; letter-spacing: 3px; position: relative;
@@ -122,22 +122,22 @@
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
         }
-        /* Línea Central */
+        /* Línea Central: Z-INDEX 0 PARA QUE ESTÉ AL FONDO */
         .timeline::after {
             content: ''; position: absolute; width: 2px; background-color: var(--lilac-light);
             top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0;
         }
         .timeline-item {
-            padding: 10px 40px; position: relative; background-color: inherit; width: 50%;
+            padding: 10px 40px; position: relative; background-color: transparent; width: 50%;
         }
         /* Alineación Desktop */
         .timeline-item.left { left: 0; text-align: right; }
         .timeline-item.right { left: 50%; text-align: left; }
         
-        /* Puntos */
+        /* Puntos: Z-INDEX 10 PARA QUE ESTÉN ARRIBA */
         .timeline-item::after {
             content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: white;
-            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 1;
+            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 10;
         }
         .timeline-item.right::after { left: -8px; }
 
@@ -221,7 +221,7 @@
             .timeline-item { 
                 width: 100%; 
                 padding-left: 0; padding-right: 0; 
-                padding-top: 30px; 
+                padding-top: 40px; 
                 text-align: center; 
             }
             .timeline-item.left, .timeline-item.right { text-align: center; left: 0; }
@@ -235,16 +235,19 @@
             }
             .timeline-item.right::after { left: 50%; }
 
-            /* CORRECCIÓN DE LA LÍNEA: Fondo blanco y display inline para "cortar" la línea */
+            /* --- CORRECCIÓN CLAVE: FONDO BLANCO PARA CORTAR LÍNEA --- */
             .tl-time, .tl-content h4 {
-                background-color: var(--white); /* Fondo blanco para tapar línea */
+                background-color: var(--white); /* El fondo tapa la línea */
                 position: relative;
-                z-index: 2; /* Encima de la línea */
-                display: inline-block; /* Solo ocupa el ancho del texto */
-                padding: 0 10px; /* Margen para borrar la línea alrededor */
+                z-index: 2; /* Texto por encima */
+                display: inline-block; 
+                padding: 5px 15px; /* Relleno para dar aire */
+                border-radius: 5px; /* Opcional: bordes suaves */
             }
-            /* Espacio extra entre hora y actividad */
-            .tl-content h4 { margin-top: 5px; }
+            
+            /* Asegurar que la hora y la actividad estén separadas */
+            .tl-time { display: block; margin: 0 auto 5px auto; width: fit-content; }
+            .tl-content h4 { display: inline-block; margin: 0; }
         }
     </style>
 </head>
@@ -318,19 +321,19 @@
         <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
         <div class="timeline">
             <div class="timeline-item left" data-aos="fade-right">
-                <div class="tl-time">5:00 PM</div>
+                <span class="tl-time">5:00 PM</span>
                 <div class="tl-content"><h4>Misa</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <div class="tl-time">8:00 PM</div>
+                <span class="tl-time">8:00 PM</span>
                 <div class="tl-content"><h4>Recepción</h4></div>
             </div>
             <div class="timeline-item left" data-aos="fade-right">
-                <div class="tl-time">9:00 PM</div>
+                <span class="tl-time">9:00 PM</span>
                 <div class="tl-content"><h4>Vals</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <div class="tl-time">10:00 PM</div>
+                <span class="tl-time">10:00 PM</span>
                 <div class="tl-content"><h4>Fiesta</h4></div>
             </div>
         </div>
