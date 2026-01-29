@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - María Paz</title>
+    <title>Mis XV Años - Invitación Oficial</title>
     
     <meta property="og:title" content="¡Mis XV Años! - María Paz">
-    <meta property="og:description" content="Acompáñame a celebrar este gran día. 25 de Abril, 2026.">
+    <meta property="og:description" content="Acompáñame a celebrar este gran día. Toca para ver los detalles.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
@@ -14,408 +14,282 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES DE LUJO --- */
         :root {
-            /* Degradado Dorado Premium */
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             --gold-color: #c5a059;
             --text-dark: #2c2c2c;
-            --bg-color: #fcfcfc;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
-            --shadow-soft: 0 20px 40px -10px rgba(179, 135, 40, 0.15);
+            --bg-color: #f9f9f9;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            color: var(--text-dark); 
-            background-color: var(--bg-color); 
-            background-image: radial-gradient(#e8e0cc 1px, transparent 1px);
-            background-size: 30px 30px; /* Patrón de puntos sutil */
-            overflow-x: hidden; 
-        }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text-dark); background-color: var(--bg-color); overflow-x: hidden; }
 
-        /* --- TIPOGRAFÍA PREMIUM --- */
+        /* TIPOGRAFÍA DE LUJO */
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .gold-text { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .cursive { font-family: 'Great Vibes', cursive; }
         
-        /* Efecto Texto Dorado Metálico */
-        .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 600;
-        }
-
         .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-family: 'Great Vibes', cursive; /* Títulos más artísticos */
-            color: var(--gold-color);
-            margin: 80px 0 40px;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        /* Adorno debajo del título */
-        .section-title::after {
-            content: '❧';
-            display: block;
-            font-size: 1.5rem;
-            color: #d4af37;
-            margin-top: 10px;
-            font-family: serif;
+            text-align: center; font-size: 3.5rem; font-family: 'Great Vibes', cursive;
+            color: var(--gold-color); margin: 60px 0 40px; text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
         }
 
-        /* --- 1. PORTADA CON ZOOM LENTO (Ken Burns) --- */
-        .hero-section {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        /* 1. PORTADA CON PARALLAX */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=1920'); /* FOTO FONDO */
+            background-size: cover; background-position: center; background-attachment: fixed; position: relative;
         }
+        .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+        .hero-content { position: relative; z-index: 2; color: white; padding: 20px; }
+        .main-title { font-size: 5rem; margin: 10px 0; line-height: 1; text-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* CAMBIAR FOTO PORTADA AQUÍ */
-            background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=1920');
-            background-size: cover; background-position: center;
-            z-index: 0;
-            animation: kenBurns 20s infinite alternate; /* Animación de Zoom */
+        /* 2. CONTADOR */
+        .timer-box { 
+            display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px; 
         }
-        
-        @keyframes kenBurns {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
-        }
-
-        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1; }
-        
-        .hero-content { position: relative; z-index: 2; color: white; padding: 20px; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(2px); border-radius: 20px; padding: 40px; }
-        
-        .intro-text { font-family: 'Cinzel', serif; letter-spacing: 5px; font-size: 1rem; margin-bottom: 15px; text-transform: uppercase; }
-        .main-title { font-size: 5.5rem; line-height: 1; margin: 10px 0; font-family: 'Great Vibes', cursive; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        
-        /* Flecha para bajar */
-        .scroll-down {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            color: white; font-size: 2rem; z-index: 3;
-            animation: bounce 2s infinite; opacity: 0.8;
-        }
-
-        /* --- 2. CONTADOR & TARJETAS GLASSMORPHISM --- */
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: var(--glass-border);
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .countdown-section { padding: 80px 20px; text-align: center; }
-        .countdown-grid { display: flex; justify-content: center; gap: 20px; margin: 40px auto; flex-wrap: wrap; }
-        
-        .time-item {
-            background: white; width: 90px; height: 100px; border-radius: 50px 50px 10px 10px; /* Forma única */
+        .time-circle {
+            width: 80px; height: 80px; background: rgba(255,255,255,0.9); border-radius: 50%;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .time-item span { font-size: 2.2rem; background: var(--gold-gradient); -webkit-background-clip: text; color: transparent; font-weight: bold; }
-        .time-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-top: 5px; }
+        .time-circle span { font-weight: bold; font-size: 1.5rem; color: var(--gold-color); }
+        .time-circle small { font-size: 0.7rem; text-transform: uppercase; }
 
-        /* --- 3. TICKET DE LUJO --- */
-        .ticket-wrapper {
-            max-width: 600px; margin: 0 auto;
-            background: #fff;
-            padding: 10px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-soft);
+        /* 3. GALERÍA (NUEVO) */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;
+            padding: 20px; max-width: 1200px; margin: 0 auto;
         }
-        .ticket-inner {
-            border: 2px dashed #d4af37;
-            padding: 40px 20px;
-            border-radius: 15px;
-            text-align: center;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png'); /* Textura sutil */
+        .gallery-item {
+            height: 300px; overflow: hidden; border-radius: 10px; cursor: pointer; position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
-        /* --- 4. EVENTOS ANIMADOS --- */
-        .event-card {
-            display: flex; flex-wrap: wrap; 
-            margin-bottom: 80px; border-radius: 20px; overflow: hidden;
-            background: white; box-shadow: var(--shadow-soft);
-            transition: transform 0.3s ease;
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
         }
-        .event-card:hover { transform: translateY(-10px); } /* Levitar al pasar mouse */
+        .gallery-item:hover img { transform: scale(1.1); }
         
-        .event-img { flex: 1; min-height: 350px; min-width: 300px; background-size: cover; background-position: center; }
-        .event-info { flex: 1; padding: 50px; display: flex; flex-direction: column; justify-content: center; text-align: center; min-width: 300px; position: relative; }
+        /* Modal Lightbox (Para ver foto grande) */
+        .lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 1000;
+            justify-content: center; align-items: center;
+        }
+        .lightbox img { max-width: 90%; max-height: 90%; border: 2px solid white; border-radius: 5px; }
+        .close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
+
+        /* 4. PADRINOS (NUEVO) */
+        .honor-card {
+            background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 800px; margin: 0 auto; text-align: center; border-top: 5px solid var(--gold-color);
+        }
+        .names-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 20px; }
+        .name-box h4 { font-size: 1.2rem; margin-bottom: 5px; color: #555; }
+        .name-box p { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--gold-color); }
+
+        /* 5. SUGERIR CANCIÓN (NUEVO) */
+        .song-btn {
+            background: #1DB954; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px; font-weight: bold; margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4); transition: transform 0.2s;
+        }
+        .song-btn:hover { transform: translateY(-3px); }
+
+        /* OTROS ESTILOS BÁSICOS */
+        .event-card { display: flex; flex-wrap: wrap; background: white; margin: 40px auto; max-width: 900px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .event-info { padding: 40px; flex: 1; min-width: 300px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+        .event-map { flex: 1; min-width: 300px; min-height: 300px; }
         
-        /* Icono flotante */
-        .floating-icon {
-            font-size: 3rem; color: #f0f0f0; position: absolute; top: 20px; right: 20px; z-index: 0;
-            transform: rotate(-15deg);
+        .rsvp-btn {
+            background: var(--gold-gradient); color: white; padding: 15px 40px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block;
+            box-shadow: 0 5px 20px rgba(197, 160, 89, 0.5); margin-top: 20px;
         }
 
-        /* Botones de Lujo */
-        .btn-luxury {
-            display: inline-block; padding: 12px 35px; margin-top: 20px;
-            background: var(--gold-gradient); color: white; text-decoration: none;
-            border-radius: 50px; font-weight: 600; letter-spacing: 1px; font-size: 0.9rem;
-            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4);
-            transition: all 0.3s ease;
-            position: relative; overflow: hidden; z-index: 1;
-        }
-        .btn-luxury:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(197, 160, 89, 0.6); }
-
-        /* --- 5. ITINERARIO ELEGANTE --- */
-        .timeline { border-left: 3px solid #e0e0e0; margin-left: 50%; transform: translateX(-50%); padding: 0; max-width: 800px; width: 100%; }
-        .timeline-item { width: 50%; padding: 20px 40px; position: relative; box-sizing: border-box; }
-        .timeline-item:nth-child(odd) { left: 0; text-align: right; }
-        .timeline-item:nth-child(even) { left: 50%; text-align: left; }
-        
-        .timeline-item::after {
-            content: ''; position: absolute; width: 20px; height: 20px;
-            background: var(--gold-color); border: 4px solid white; border-radius: 50%;
-            top: 25px; z-index: 1; box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.2);
-        }
-        .timeline-item:nth-child(odd)::after { right: -11.5px; }
-        .timeline-item:nth-child(even)::after { left: -11.5px; }
-
-        /* --- 6. MÚSICA & RSVP --- */
+        /* Música Flotante */
         .music-fab {
-            position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
-            background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2); cursor: pointer; z-index: 100; border: 2px solid #f0f0f0;
-            animation: pulse-gold 2s infinite;
-        }
-        @keyframes pulse-gold {
-            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+            position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: white;
+            border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 100;
+            display: flex; justify-content: center; align-items: center; cursor: pointer; color: var(--gold-color);
         }
 
-        .rsvp-section {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920');
-            background-size: cover; background-attachment: fixed;
-            color: white; padding: 100px 20px; text-align: center;
-        }
-
-        /* Responsive Móvil */
         @media (max-width: 768px) {
             .main-title { font-size: 4rem; }
-            .timeline { border-left: 3px solid #e0e0e0; margin-left: 20px; transform: none; width: auto; }
-            .timeline-item { width: 100%; padding-left: 30px; padding-right: 10px; text-align: left !important; left: 0 !important; }
-            .timeline-item::after { left: -21px !important; }
-            .event-card, .event-card.reverse { flex-direction: column; }
-            .event-img { height: 250px; }
+            .section-title { font-size: 2.8rem; }
         }
-        
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);} 40% {transform: translateX(-50%) translateY(-10px);} 60% {transform: translateX(-50%) translateY(-5px);} }
     </style>
 </head>
 <body>
 
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Foto Ampliada">
+    </div>
+
     <div class="music-fab" onclick="toggleMusic()">
-        <i class="fas fa-play" id="music-icon" style="color: var(--gold-color); font-size: 1.2rem; margin-left: 3px;"></i>
+        <i class="fas fa-play" id="music-icon"></i>
     </div>
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
 
-    <header class="hero-section">
-        <div class="hero-bg"></div> <div class="overlay"></div>
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="2000">
-            <p class="intro-text">Estás invitado a mis</p>
-            <h1 class="main-title gold-text">María Paz</h1>
-            <p style="font-size: 1.2rem; letter-spacing: 3px; border-top: 1px solid rgba(255,255,255,0.5); padding-top: 10px; margin-top: 10px;">XV AÑOS</p>
-        </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content" data-aos="zoom-in" data-aos-duration="1500">
+            <p style="letter-spacing: 3px; text-transform: uppercase;">Mis XV Años</p>
+            <h1 class="main-title cursive">María Paz</h1>
+            <div class="timer-box" id="countdown">
+                <div class="time-circle"><span id="d">00</span><small>Días</small></div>
+                <div class="time-circle"><span id="h">00</span><small>Hrs</small></div>
+                <div class="time-circle"><span id="m">00</span><small>Min</small></div>
+                <div class="time-circle"><span id="s">00</span><small>Seg</small></div>
+            </div>
         </div>
     </header>
 
-    <section class="countdown-section">
-        <div style="max-width: 700px; margin: 0 auto; text-align: center;" data-aos="fade-up">
-            <i class="fas fa-quote-left" style="font-size: 2rem; color: #e0e0e0; margin-bottom: 20px;"></i>
-            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: #555; line-height: 1.8;">
-                "Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más quieres, los convierte en inolvidables."
-            </p>
-        </div>
-
-        <h2 class="section-title" data-aos="zoom-in">Cuenta Regresiva</h2>
-        
-        <div class="countdown-grid" id="countdown">
-            <div class="time-item glass-card"><span id="days">00</span><p>Días</p></div>
-            <div class="time-item glass-card"><span id="hours">00</span><p>Horas</p></div>
-            <div class="time-item glass-card"><span id="minutes">00</span><p>Mins</p></div>
-            <div class="time-item glass-card"><span id="seconds">00</span><p>Segs</p></div>
-        </div>
-
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Años+María+Paz&dates=20260425T170000/20260426T020000" target="_blank" class="btn-luxury" data-aos="fade-up">
-            <i class="far fa-calendar-alt"></i> Agendar en Calendario
-        </a>
+    <section style="padding: 60px 20px; text-align: center;">
+        <i class="fas fa-quote-left" style="font-size: 2rem; color: #ddd;"></i>
+        <p style="font-family: 'Playfair Display'; font-size: 1.4rem; max-width: 600px; margin: 20px auto; color: #555;">
+            "La magia de este día no estaría completa sin la presencia de las personas que más amo."
+        </p>
     </section>
 
-    <section style="padding: 40px 20px; background: #fdfdfd;" data-aos="flip-up">
-        <div class="ticket-wrapper">
-            <div class="ticket-inner">
-                <p style="text-transform: uppercase; letter-spacing: 2px; color: #999; font-size: 0.8rem;">Invitación Oficial</p>
-                <h3 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--text-dark); margin: 10px 0;">Pase Personal</h3>
-                <p style="font-weight: bold; color: var(--gold-color);">MESA RESERVADA</p>
-                <div style="margin: 20px auto; width: 50px; height: 2px; background: #d4af37;"></div>
-                <p style="font-style: italic; color: #777;">Esperamos contar con tu valiosa presencia.</p>
+    <section style="background: white; padding-bottom: 60px;">
+        <h2 class="section-title" data-aos="fade-up">Sesión de Fotos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400" alt="XV 1">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400" alt="XV 2">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400" alt="XV 3">
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=400" alt="XV 4">
+            </div>
+             <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=400" alt="XV 5">
+            </div>
+             <div class="gallery-item" onclick="openLightbox(this)" data-aos="fade-up" data-aos-delay="500">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=400" alt="XV 6">
             </div>
         </div>
     </section>
 
-    <section style="padding: 60px 20px; max-width: 1000px; margin: 0 auto;">
+    <section style="padding: 20px;">
+        <h2 class="section-title">La Celebración</h2>
         
         <div class="event-card" data-aos="fade-right">
             <div class="event-info">
-                <i class="fas fa-church floating-icon"></i> <h3 style="font-size: 2rem; color: var(--gold-color);">Ceremonia</h3>
-                <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">5:00 PM</p>
+                <i class="fas fa-church" style="font-size: 2.5rem; color: var(--gold-color); margin-bottom: 15px;"></i>
+                <h3>Ceremonia</h3>
+                <p><strong>5:00 PM</strong></p>
                 <p>Parroquia San Agustín</p>
-                <p style="color: #888; margin-bottom: 20px;">Av. Principal #123, Centro</p>
-                <a href="https://goo.gl/maps/TU_LINK_AQUI" target="_blank" class="btn-luxury">Ver Ubicación</a>
+                <a href="https://goo.gl/maps/x" target="_blank" style="color: var(--gold-color); margin-top: 10px;">Ver Ubicación</a>
             </div>
-            <div class="event-img" style="position: relative;">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5369689456!2d-99.1678!3d19.4270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5c1f87b%3A0x378732d99a809b0c!2sEl%20Angel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1600000000000" width="100%" height="100%" style="border:0; position: absolute;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="event-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5369689456!2d-99.1678!3d19.4270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5c1f87b%3A0x378732d99a809b0c!2sEl%20Angel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1600000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
-        <div class="event-card reverse" data-aos="fade-left">
+        <div class="event-card" data-aos="fade-left">
             <div class="event-info">
-                <i class="fas fa-glass-cheers floating-icon"></i>
-                <h3 style="font-size: 2rem; color: var(--gold-color);">Recepción</h3>
-                <p style="font-size: 1.5rem; font-weight: bold; margin: 10px 0;">8:00 PM</p>
+                <i class="fas fa-glass-cheers" style="font-size: 2.5rem; color: var(--gold-color); margin-bottom: 15px;"></i>
+                <h3>Recepción</h3>
+                <p><strong>8:00 PM</strong></p>
                 <p>Salón "El Ensueño"</p>
-                <p style="color: #888; margin-bottom: 20px;">Calle Las Rosas #450</p>
-                <a href="https://goo.gl/maps/TU_LINK_AQUI" target="_blank" class="btn-luxury">Ver Ubicación</a>
+                <a href="https://goo.gl/maps/x" target="_blank" style="color: var(--gold-color); margin-top: 10px;">Ver Ubicación</a>
             </div>
-            <div class="event-img" style="position: relative;">
-                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5369689456!2d-99.1678!3d19.4270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5c1f87b%3A0x378732d99a809b0c!2sEl%20Angel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1600000000000" width="100%" height="100%" style="border:0; position: absolute;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-
-    </section>
-
-    <section style="background: #fff; padding: 60px 20px; border-top: 1px solid #f0f0f0;">
-        <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up">
-                <h3 style="color: var(--gold-color);">Recepción</h3>
-                <span style="font-weight: bold; color: #333;">07:00 PM</span>
-                <p style="font-size: 0.9rem; color: #666;">Bienvenida y Cóctel</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 style="color: var(--gold-color);">Cena</h3>
-                <span style="font-weight: bold; color: #333;">08:00 PM</span>
-                <p style="font-size: 0.9rem; color: #666;">Banquete de 3 tiempos</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 style="color: var(--gold-color);">Vals</h3>
-                <span style="font-weight: bold; color: #333;">09:00 PM</span>
-                <p style="font-size: 0.9rem; color: #666;">Primer baile</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                <h3 style="color: var(--gold-color);">Fiesta</h3>
-                <span style="font-weight: bold; color: #333;">10:00 PM</span>
-                <p style="font-size: 0.9rem; color: #666;">¡A bailar!</p>
+            <div class="event-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5369689456!2d-99.1678!3d19.4270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5c1f87b%3A0x378732d99a809b0c!2sEl%20Angel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1600000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <section style="padding: 80px 20px; background: var(--bg-color); text-align: center;">
+    <section style="padding: 40px 20px; background: #fff;">
+        <h2 class="section-title" data-aos="zoom-in">Corte de Honor</h2>
+        <div class="honor-card" data-aos="fade-up">
+            <h3 style="margin-bottom: 20px;">Agradecimiento Especial</h3>
+            <p>Con amor a quienes guían mis pasos.</p>
+            
+            <div class="names-grid">
+                <div class="name-box">
+                    <h4>Mis Padres</h4>
+                    <p>Juan & Ana</p>
+                </div>
+                <div class="name-box">
+                    <h4>Mis Padrinos</h4>
+                    <p>Carlos & Diana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 60px 20px; text-align: center; background: var(--bg-color);">
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
-            <div class="glass-card" style="padding: 40px; max-width: 400px; width: 100%;" data-aos="fade-right">
-                <i class="fas fa-tshirt" style="font-size: 2.5rem; color: var(--gold-color); margin-bottom: 20px;"></i>
-                <h3>Código de Vestimenta</h3>
-                <p style="font-weight: bold; margin: 10px 0;">FORMAL RIGUROSO</p>
-                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-                    <div><i class="fas fa-male"></i><br><small>Traje</small></div>
-                    <div><i class="fas fa-female"></i><br><small>Vestido Largo</small></div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.8rem; color: #888;">🚫 Reservado: Rosa y Blanco</p>
+            
+            <div style="background: white; padding: 30px; border-radius: 15px; width: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);" data-aos="flip-left">
+                <i class="fab fa-instagram" style="font-size: 2.5rem; color: #E1306C; margin-bottom: 15px;"></i>
+                <h3>Usa el Hashtag</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-weight: bold; font-size: 1.2rem; color: #555; margin-top: 10px;">#MisXVMariaPaz</p>
+                <p style="font-size: 0.8rem; color: #999;">¡Etiquétame en tus historias!</p>
             </div>
 
-            <div class="glass-card" style="padding: 40px; max-width: 400px; width: 100%;" data-aos="fade-left">
-                <i class="fas fa-gift" style="font-size: 2.5rem; color: var(--gold-color); margin-bottom: 20px;"></i>
-                <h3>Mesa de Regalos</h3>
-                <p>Tu presencia es mi mayor regalo.</p>
-                <p style="margin-top: 15px; font-size: 0.9rem;">Si deseas tener un detalle:</p>
-                <div style="background: #f9f9f9; padding: 10px; border-radius: 10px; margin-top: 15px;">
-                    <i class="fas fa-envelope-open-text"></i> Lluvia de Sobres
-                </div>
+            <div style="background: white; padding: 30px; border-radius: 15px; width: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);" data-aos="flip-right">
+                <i class="fas fa-music" style="font-size: 2.5rem; color: #1DB954; margin-bottom: 15px;"></i>
+                <h3>¿Qué quieres bailar?</h3>
+                <p style="font-size: 0.9rem;">Ayúdame a crear la playlist perfecta.</p>
+                <a href="https://wa.me/5215500000000?text=Hola!%20Sugiero%20esta%20cancion%20para%20la%20fiesta:" class="song-btn" target="_blank">
+                    Sugerir Canción
+                </a>
             </div>
+
         </div>
     </section>
 
-    <section class="rsvp-section">
-        <h2 style="font-family: 'Great Vibes', cursive; font-size: 4rem; margin-bottom: 20px;" data-aos="zoom-in">Confirmación</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 30px;">Por favor confirma tu asistencia antes del 15 de Abril</p>
-        
-        <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia" class="btn-luxury" style="background: #25d366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);" target="_blank">
-            <i class="fab fa-whatsapp"></i> Confirmar por WhatsApp
+    <section style="padding: 80px 20px; text-align: center; background: #fff; border-top: 1px solid #eee;">
+        <h2 class="section-title">Confirmar Asistencia</h2>
+        <p style="margin-bottom: 30px;">Por favor confirma antes del 15 de Abril</p>
+        <a href="https://wa.me/5215500000000?text=Confirmo%20mi%20asistencia" class="rsvp-btn">
+            <i class="fab fa-whatsapp"></i> Confirmar vía WhatsApp
         </a>
     </section>
 
-    <footer>
-        <p style="padding: 30px; text-align: center; color: #999; font-size: 0.8rem;">
-            Hecho con ❤️ para los XV de María Paz
-        </p>
-    </footer>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicializar animaciones con configuración suave
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-out-cubic',
-            once: true,
-            mirror: false
-        });
+        AOS.init({ duration: 1000, once: true });
 
         // CUENTA REGRESIVA
         const eventDate = new Date("April 25, 2026 17:00:00").getTime();
-        const timer = setInterval(function() {
+        setInterval(() => {
             const now = new Date().getTime();
-            const distance = eventDate - now;
-            
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "<h2 class='gold-text'>¡ES HOY!</h2>";
-            }
+            const dist = eventDate - now;
+            document.getElementById("d").innerText = Math.floor(dist / (1000 * 60 * 60 * 24));
+            document.getElementById("h").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("m").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("s").innerText = Math.floor((dist % (1000 * 60)) / 1000);
         }, 1000);
 
-        // CONTROL MÚSICA
+        // MÚSICA
         let isPlaying = false;
         const audio = document.getElementById("bg-music");
         const icon = document.getElementById("music-icon");
-
         function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-                icon.classList.remove("fa-pause");
-                icon.classList.add("fa-play");
-            } else {
-                audio.play();
-                icon.classList.remove("fa-play");
-                icon.classList.add("fa-pause");
-            }
+            if (isPlaying) { audio.pause(); icon.classList.replace("fa-pause", "fa-play"); }
+            else { audio.play(); icon.classList.replace("fa-play", "fa-pause"); }
             isPlaying = !isPlaying;
+        }
+
+        // LIGHTBOX DE FOTOS
+        function openLightbox(element) {
+            const imgSrc = element.querySelector('img').src;
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
         }
     </script>
 </body>
