@@ -36,7 +36,7 @@
         /* TIPOGRAFÍA */
         h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: 1px; }
         
-        /* CORRECCIÓN 1: ROMBO EN CSS PURO (NO CARÁCTER) PARA EVITAR EMOJI ROJO */
+        /* CORRECCIÓN ROMBO: CSS PURO COLOR LILA */
         .section-title {
             text-align: center; font-size: 2.2rem; color: var(--lilac-dark); margin: 70px 0 30px;
             text-transform: uppercase; letter-spacing: 3px; position: relative;
@@ -46,8 +46,8 @@
             display: block; 
             width: 12px; 
             height: 12px; 
-            background-color: var(--lilac-main); /* Color forzado */
-            transform: rotate(45deg); /* Rotación para hacer el rombo */
+            background-color: var(--lilac-main); 
+            transform: rotate(45deg); 
             margin: 15px auto 0;
         }
 
@@ -117,7 +117,7 @@
         }
         .btn-outline:hover { background: var(--lilac-main); color: white; }
 
-        /* --- 5. ITINERARIO (ESTRUCTURA PC) --- */
+        /* --- 5. ITINERARIO (ESTRUCTURA) --- */
         .timeline-section { padding: 60px 20px; background: white; }
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
@@ -216,28 +216,36 @@
             .section-title { font-size: 1.8rem; }
             .event-card, .event-card.reverse { flex-direction: column; }
             
-            /* --- CORRECCIÓN 2: ITINERARIO MÓVIL ORDENADO --- */
-            .timeline::after { left: 50%; margin-left: -1px; } /* Línea al centro */
+            /* --- CORRECCIÓN ITINERARIO MÓVIL --- */
+            .timeline::after { left: 50%; margin-left: -1px; }
             .timeline-item { 
                 width: 100%; 
                 padding-left: 0; padding-right: 0; 
-                padding-top: 30px; /* Espacio para el punto arriba */
+                padding-top: 30px; 
                 text-align: center; 
             }
-            /* Forzar todo al centro y quitar posicionamiento izq/der */
-            .timeline-item.left, .timeline-item.right { left: 0; text-align: center; }
+            .timeline-item.left, .timeline-item.right { text-align: center; left: 0; }
             
-            /* Ajuste del punto en la parte SUPERIOR CENTRAL del item */
             .timeline-item::after { 
                 left: 50%; 
-                margin-left: -11px; /* Centrado perfecto (16px ancho + borde) */
+                margin-left: -11px;
                 top: 0; 
                 right: auto;
             }
             .timeline-item.right::after { left: 50%; }
 
-            /* Ajuste de textos para que fluyan debajo del punto */
-            .tl-time { display: block; margin-top: 5px; margin-bottom: 5px; }
+            /* --- CORRECCIÓN SUPERPOSICIÓN: FONDO BLANCO EN TEXTO --- */
+            .tl-time, .tl-content h4 {
+                background-color: var(--white);
+                position: relative;
+                z-index: 2; /* Texto arriba */
+                padding: 0 10px; /* Separación de la línea */
+                display: inline-block;
+            }
+            /* Asegurar que la línea esté detrás */
+            .timeline::after {
+                z-index: 0;
+            }
         }
     </style>
 </head>
