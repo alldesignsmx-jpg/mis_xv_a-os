@@ -36,17 +36,19 @@
         /* TIPOGRAFÍA */
         h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: 1px; }
         
-        /* Títulos de Sección con Rombo Lila */
+        /* CORRECCIÓN 1: ROMBO EN CSS PURO (NO CARÁCTER) PARA EVITAR EMOJI ROJO */
         .section-title {
             text-align: center; font-size: 2.2rem; color: var(--lilac-dark); margin: 70px 0 30px;
             text-transform: uppercase; letter-spacing: 3px; position: relative;
         }
         .section-title::after {
-            content: '♦'; 
+            content: ''; 
             display: block; 
-            font-size: 1.5rem; 
-            color: var(--lilac-main); /* COLOR LILA APLICADO */
-            margin-top: 10px;
+            width: 12px; 
+            height: 12px; 
+            background-color: var(--lilac-main); /* Color forzado */
+            transform: rotate(45deg); /* Rotación para hacer el rombo */
+            margin: 15px auto 0;
         }
 
         /* --- 1. PORTADA --- */
@@ -115,7 +117,7 @@
         }
         .btn-outline:hover { background: var(--lilac-main); color: white; }
 
-        /* --- 5. ITINERARIO (CENTRADO ESTRICTO) --- */
+        /* --- 5. ITINERARIO (ESTRUCTURA PC) --- */
         .timeline-section { padding: 60px 20px; background: white; }
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
@@ -146,15 +148,15 @@
         .dresscode-section { padding: 80px 20px; text-align: center; background: var(--lilac-light); }
         .dress-grid { display: flex; justify-content: center; gap: 60px; margin-top: 40px; flex-wrap: wrap; }
         .dress-item { transition: transform 0.3s; }
+        .dress-item:hover { transform: translateY(-5px); }
         .dress-item i { font-size: 3.5rem; color: var(--lilac-dark); margin-bottom: 15px; }
         
         .gifts-section { padding: 80px 20px; text-align: center; background: white; }
         .thanks-text { font-family: var(--font-cursive); font-size: 1.8rem; color: #888; margin: 30px auto; max-width: 600px; }
-        /* Corrección de alineación en regalos */
         .gift-box { 
             border: 1px solid #f0f0f0; padding: 30px; border-radius: 8px; display: inline-block; 
             width: 100%; max-width: 320px; margin: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            text-align: center; /* Alineación centrada forzada */
+            text-align: center; 
         }
 
         /* --- 7. CORTE DE HONOR --- */
@@ -172,7 +174,7 @@
         }
         .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- 9. CONFIRMACIÓN (SIN HOSPEDAJE) --- */
+        /* --- 9. CONFIRMACIÓN --- */
         .rsvp-section { 
             padding: 100px 20px; text-align: center; color: white;
             background-image: linear-gradient(rgba(110, 75, 117, 0.9), rgba(110, 75, 117, 0.9)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1920');
@@ -208,29 +210,34 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
         }
 
-        /* --- RESPONSIVE MEDIA QUERIES (ARREGLOS MÓVIL) --- */
+        /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 768px) {
             .main-title { font-size: 3.5rem; }
             .section-title { font-size: 1.8rem; }
             .event-card, .event-card.reverse { flex-direction: column; }
             
-            /* --- ITINERARIO CENTRADO EN MÓVIL --- */
-            /* La línea se queda al centro */
-            .timeline::after { left: 50%; margin-left: -1px; }
-            /* Los items ocupan todo el ancho y centran su texto */
-            .timeline-item { width: 100%; padding: 0 20px 30px 20px; text-align: center; }
-            /* Forzamos alineación central sin importar si es left o right */
-            .timeline-item.left, .timeline-item.right { text-align: center; left: 0; }
-            /* El punto se centra relativo al item */
+            /* --- CORRECCIÓN 2: ITINERARIO MÓVIL ORDENADO --- */
+            .timeline::after { left: 50%; margin-left: -1px; } /* Línea al centro */
+            .timeline-item { 
+                width: 100%; 
+                padding-left: 0; padding-right: 0; 
+                padding-top: 30px; /* Espacio para el punto arriba */
+                text-align: center; 
+            }
+            /* Forzar todo al centro y quitar posicionamiento izq/der */
+            .timeline-item.left, .timeline-item.right { left: 0; text-align: center; }
+            
+            /* Ajuste del punto en la parte SUPERIOR CENTRAL del item */
             .timeline-item::after { 
                 left: 50%; 
-                right: auto; 
-                margin-left: -11px; /* Ajuste fino para centrar el punto de 16px + borde */
-                top: -5px; /* Subimos el punto un poco */
+                margin-left: -11px; /* Centrado perfecto (16px ancho + borde) */
+                top: 0; 
+                right: auto;
             }
-            /* Ajustamos el tiempo para que quede arriba del título */
-            .tl-time { display: block; margin-bottom: 5px; margin-top: 15px; }
-            .tl-content h4 { margin-top: 5px; }
+            .timeline-item.right::after { left: 50%; }
+
+            /* Ajuste de textos para que fluyan debajo del punto */
+            .tl-time { display: block; margin-top: 5px; margin-bottom: 5px; }
         }
     </style>
 </head>
