@@ -36,7 +36,7 @@
         /* TIPOGRAFÍA */
         h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: 1px; }
         
-        /* CORRECCIÓN ROMBO: CSS PURO COLOR LILA */
+        /* CORRECCIÓN ROMBO: CSS PURO (Cuadrado rotado) PARA EVITAR EMOJI ROJO */
         .section-title {
             text-align: center; font-size: 2.2rem; color: var(--lilac-dark); margin: 70px 0 30px;
             text-transform: uppercase; letter-spacing: 3px; position: relative;
@@ -117,7 +117,7 @@
         }
         .btn-outline:hover { background: var(--lilac-main); color: white; }
 
-        /* --- 5. ITINERARIO (ESTRUCTURA) --- */
+        /* --- 5. ITINERARIO (ESTRUCTURA PC) --- */
         .timeline-section { padding: 60px 20px; background: white; }
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
@@ -125,7 +125,7 @@
         /* Línea Central */
         .timeline::after {
             content: ''; position: absolute; width: 2px; background-color: var(--lilac-light);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+            top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0;
         }
         .timeline-item {
             padding: 10px 40px; position: relative; background-color: inherit; width: 50%;
@@ -217,7 +217,7 @@
             .event-card, .event-card.reverse { flex-direction: column; }
             
             /* --- CORRECCIÓN ITINERARIO MÓVIL --- */
-            .timeline::after { left: 50%; margin-left: -1px; }
+            .timeline::after { left: 50%; margin-left: -1px; z-index: 0; }
             .timeline-item { 
                 width: 100%; 
                 padding-left: 0; padding-right: 0; 
@@ -231,21 +231,20 @@
                 margin-left: -11px;
                 top: 0; 
                 right: auto;
+                z-index: 5;
             }
             .timeline-item.right::after { left: 50%; }
 
-            /* --- CORRECCIÓN SUPERPOSICIÓN: FONDO BLANCO EN TEXTO --- */
+            /* CORRECCIÓN DE LA LÍNEA: Fondo blanco y display inline para "cortar" la línea */
             .tl-time, .tl-content h4 {
-                background-color: var(--white);
+                background-color: var(--white); /* Fondo blanco para tapar línea */
                 position: relative;
-                z-index: 2; /* Texto arriba */
-                padding: 0 10px; /* Separación de la línea */
-                display: inline-block;
+                z-index: 2; /* Encima de la línea */
+                display: inline-block; /* Solo ocupa el ancho del texto */
+                padding: 0 10px; /* Margen para borrar la línea alrededor */
             }
-            /* Asegurar que la línea esté detrás */
-            .timeline::after {
-                z-index: 0;
-            }
+            /* Espacio extra entre hora y actividad */
+            .tl-content h4 { margin-top: 5px; }
         }
     </style>
 </head>
@@ -319,19 +318,19 @@
         <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
         <div class="timeline">
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">5:00 PM</span>
+                <div class="tl-time">5:00 PM</div>
                 <div class="tl-content"><h4>Misa</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">8:00 PM</span>
+                <div class="tl-time">8:00 PM</div>
                 <div class="tl-content"><h4>Recepción</h4></div>
             </div>
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">9:00 PM</span>
+                <div class="tl-time">9:00 PM</div>
                 <div class="tl-content"><h4>Vals</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">10:00 PM</span>
+                <div class="tl-time">10:00 PM</div>
                 <div class="tl-content"><h4>Fiesta</h4></div>
             </div>
         </div>
