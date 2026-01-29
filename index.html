@@ -54,7 +54,7 @@
         /* --- 1. PORTADA --- */
         .hero {
             height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white;
-            background-image: url('https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1920');
+            background-image: url('https://i.postimg.cc/0yFJsJCy/CUEV17a-2048x.jpg');
             background-size: cover; background-position: center top; 
         }
         .hero-overlay { position: absolute; inset: 0; background: rgba(60, 40, 65, 0.4); }
@@ -122,10 +122,10 @@
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
         }
-        /* LÍNEA PC */
+        /* Línea Central */
         .timeline::after {
             content: ''; position: absolute; width: 2px; background-color: var(--lilac-light);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px;
+            top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0; /* Z-INDEX BAJO */
         }
         .timeline-item {
             padding: 10px 40px; position: relative; background-color: transparent; width: 50%;
@@ -134,7 +134,7 @@
         .timeline-item.left { left: 0; text-align: right; }
         .timeline-item.right { left: 50%; text-align: left; }
         
-        /* Puntos PC */
+        /* Puntos */
         .timeline-item::after {
             content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: white;
             border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 10;
@@ -216,52 +216,35 @@
             .section-title { font-size: 1.8rem; }
             .event-card, .event-card.reverse { flex-direction: column; }
             
-            /* --- SOLUCIÓN: LÍNEA DISCONTINUA POR CÓDIGO --- */
-            /* En móvil, eliminamos la línea central gigante */
-            .timeline::after { display: none; }
-            
-            /* Creamos una línea pequeña SOLO entre los elementos */
+            /* --- ITINERARIO MÓVIL --- */
+            .timeline::after { left: 50%; margin-left: -1px; z-index: 0; }
             .timeline-item { 
                 width: 100%; 
-                padding: 0; 
-                text-align: center;
-                margin-bottom: 0; /* Sin margen para conectar */
-                position: relative;
-                padding-bottom: 40px; /* Espacio para la línea */
+                padding-left: 0; padding-right: 0; 
+                padding-top: 40px; 
+                text-align: center; 
             }
             .timeline-item.left, .timeline-item.right { text-align: center; left: 0; }
             
-            /* Punto arriba */
             .timeline-item::after { 
-                content: '';
+                left: 50%; 
+                margin-left: -11px;
+                top: 0; 
+                right: auto;
+                z-index: 5;
+            }
+            .timeline-item.right::after { left: 50%; }
+
+            /* FIX LÍNEA: FONDO BLANCO SÓLIDO PARA TAPAR LA LÍNEA */
+            .tl-time, .tl-content h4 {
+                background-color: #ffffff; /* FONDOS BLANCO */
                 position: relative;
-                display: block;
-                width: 16px; height: 16px; 
-                background: white; 
-                border: 3px solid var(--lilac-main);
-                border-radius: 50%;
-                margin: 0 auto 15px auto; /* Centrado y espacio abajo */
-                top: 0; left: 0; right: 0;
-                z-index: 2;
+                z-index: 10; /* ARRIBA DE LA LÍNEA */
+                display: inline-block;
+                padding: 0 10px; /* RELLENO PARA TAPAR LA LÍNEA A LOS LADOS */
             }
-
-            /* Línea conectora DEBAJO del texto hacia el siguiente */
-            .timeline-item::before {
-                content: '';
-                position: absolute;
-                top: 20px; /* Empieza debajo del punto */
-                bottom: -20px; /* Llega hasta el siguiente */
-                left: 50%;
-                width: 2px;
-                background-color: var(--lilac-light);
-                z-index: 0;
-            }
-            /* El último elemento no lleva línea hacia abajo */
-            .timeline-item:last-child::before { display: none; }
-
-            /* Texto */
-            .tl-time { display: block; margin-bottom: 5px; background: white; position: relative; z-index: 1; }
-            .tl-content h4 { background: white; position: relative; z-index: 1; }
+            
+            .tl-time { margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -309,7 +292,7 @@
         <h2 class="section-title" data-aos="fade-up">Celebración</h2>
         
         <div class="event-card" data-aos="fade-right">
-            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1548625361-1979d02df752?q=80&w=800');"></div>
+            <div class="event-img" style="background-image: url('https://i.postimg.cc/MKtyhT4Q/iglesia-nuestra-senora.jpg');"></div>
             <div class="event-details">
                 <h3>Ceremonia</h3>
                 <span class="event-time">5:00 PM</span>
@@ -335,19 +318,19 @@
         <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
         <div class="timeline">
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">5:00 PM</span>
+                <div class="tl-time">5:00 PM</div>
                 <div class="tl-content"><h4>Misa</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">8:00 PM</span>
+                <div class="tl-time">8:00 PM</div>
                 <div class="tl-content"><h4>Recepción</h4></div>
             </div>
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">9:00 PM</span>
+                <div class="tl-time">9:00 PM</div>
                 <div class="tl-content"><h4>Vals</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">10:00 PM</span>
+                <div class="tl-time">10:00 PM</div>
                 <div class="tl-content"><h4>Fiesta</h4></div>
             </div>
         </div>
@@ -387,7 +370,7 @@
         <div class="gift-box" data-aos="fade-up" data-aos-delay="200">
             <i class="fas fa-university"></i>
             <h3>Transferencia</h3>
-            <p style="font-size: 0.9rem;">BBVA | 1234 5678 90</p>
+            <p style="font-size: 0.9rem;">BBVA | 1234 5678 90<br><strong>Beneficiario:</strong> María Paz</p>
         </div>
     </section>
 
@@ -409,8 +392,8 @@
         <h2 class="section-title" data-aos="fade-up">Momentos</h2>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=400" /></div>
-                <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=400" /></div>
+                <div class="swiper-slide"><img src="https://i.postimg.cc/Z5BCV5hT/015-XV-Carolina-scaled.jpg=80&w=400" /></div>
+                <div class="swiper-slide"><img src="https://i.postimg.cc/7ZGfmZyy/7a3bd7f6897263759aca6939aa3045b6.jpg=80&w=400" /></div>
                 <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400" /></div>
                 <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=400" /></div>
             </div>
