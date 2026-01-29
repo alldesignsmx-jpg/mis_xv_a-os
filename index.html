@@ -122,10 +122,10 @@
         .timeline { 
             position: relative; max-width: 800px; margin: 0 auto; padding: 20px 0;
         }
-        /* Línea Central: Z-INDEX 0 PARA QUE ESTÉ AL FONDO */
+        /* Línea Central */
         .timeline::after {
             content: ''; position: absolute; width: 2px; background-color: var(--lilac-light);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0;
+            top: 0; bottom: 0; left: 50%; margin-left: -1px; z-index: 0; /* Z-INDEX BAJO */
         }
         .timeline-item {
             padding: 10px 40px; position: relative; background-color: transparent; width: 50%;
@@ -134,10 +134,10 @@
         .timeline-item.left { left: 0; text-align: right; }
         .timeline-item.right { left: 50%; text-align: left; }
         
-        /* Puntos: Z-INDEX 10 PARA QUE ESTÉN ARRIBA */
+        /* Puntos */
         .timeline-item::after {
             content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: white;
-            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 10;
+            border: 3px solid var(--lilac-main); top: 20px; border-radius: 50%; z-index: 1;
         }
         .timeline-item.right::after { left: -8px; }
 
@@ -216,7 +216,7 @@
             .section-title { font-size: 1.8rem; }
             .event-card, .event-card.reverse { flex-direction: column; }
             
-            /* --- CORRECCIÓN ITINERARIO MÓVIL --- */
+            /* --- SOLUCIÓN DEFINITIVA LÍNEA ITINERARIO --- */
             .timeline::after { left: 50%; margin-left: -1px; z-index: 0; }
             .timeline-item { 
                 width: 100%; 
@@ -235,19 +235,16 @@
             }
             .timeline-item.right::after { left: 50%; }
 
-            /* --- CORRECCIÓN CLAVE: FONDO BLANCO PARA CORTAR LÍNEA --- */
+            /* EL FIX: FONDO BLANCO SÓLIDO PARA TAPAR LA LÍNEA */
             .tl-time, .tl-content h4 {
-                background-color: var(--white); /* El fondo tapa la línea */
+                background-color: #ffffff; /* FONDOS BLANCO */
                 position: relative;
-                z-index: 2; /* Texto por encima */
-                display: inline-block; 
-                padding: 5px 15px; /* Relleno para dar aire */
-                border-radius: 5px; /* Opcional: bordes suaves */
+                z-index: 10; /* ARRIBA DE LA LÍNEA */
+                display: inline-block;
+                padding: 0 10px; /* RELLENO PARA TAPAR LA LÍNEA A LOS LADOS */
             }
             
-            /* Asegurar que la hora y la actividad estén separadas */
-            .tl-time { display: block; margin: 0 auto 5px auto; width: fit-content; }
-            .tl-content h4 { display: inline-block; margin: 0; }
+            .tl-time { margin-bottom: 5px; }
         }
     </style>
 </head>
@@ -321,19 +318,19 @@
         <h2 class="section-title" data-aos="fade-up">Itinerario</h2>
         <div class="timeline">
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">5:00 PM</span>
+                <div class="tl-time">5:00 PM</div>
                 <div class="tl-content"><h4>Misa</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">8:00 PM</span>
+                <div class="tl-time">8:00 PM</div>
                 <div class="tl-content"><h4>Recepción</h4></div>
             </div>
             <div class="timeline-item left" data-aos="fade-right">
-                <span class="tl-time">9:00 PM</span>
+                <div class="tl-time">9:00 PM</div>
                 <div class="tl-content"><h4>Vals</h4></div>
             </div>
             <div class="timeline-item right" data-aos="fade-left">
-                <span class="tl-time">10:00 PM</span>
+                <div class="tl-time">10:00 PM</div>
                 <div class="tl-content"><h4>Fiesta</h4></div>
             </div>
         </div>
