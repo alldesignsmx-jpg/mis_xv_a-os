@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Mis XV Años - Invitación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="music-control" onclick="toggleMusic()">
-        <i class="fas fa-music" id="music-icon"></i>
+    <div class="music-control-container">
+        <button id="music-btn" onclick="toggleMusic()">
+            <i class="fas fa-play" id="music-icon"></i>
+        </button>
+        <span class="music-label">Dale play</span>
     </div>
     <audio id="bg-music" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
@@ -20,93 +23,215 @@
 
     <header class="hero-section">
         <div class="overlay"></div>
-        <div class="hero-content">
-            <p data-aos="fade-down" data-aos-duration="1500" class="sub-title">Mis XV Años</p>
-            <h1 data-aos="zoom-in" data-aos-duration="2000">María Paz</h1> <div class="divider" data-aos="fade-up"></div>
-            <p data-aos="fade-up" data-aos-delay="500" class="date">25 DE ABRIL, 2026</p>
+        <div class="hero-content" data-aos="zoom-in" data-aos-duration="1500">
+            <p class="intro-text">¡Mis XV Años!</p>
+            <h1 class="main-title">María Paz</h1>
+            <div class="divider-line"></div>
+            <p class="hero-date">25 . 04 . 2026</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </header>
 
-    <section class="quote-section">
-        <div class="container" data-aos="fade-up">
-            <i class="fas fa-quote-left"></i>
-            <p>"Hay momentos inolvidables que se atesoran en el corazón para siempre, por eso quiero que compartas conmigo este día tan especial."</p>
-            <p class="parents">Con amor, mis padres: <strong>Juan y Ana</strong></p> </div>
-    </section>
-
     <section class="countdown-section">
-        <h2 data-aos="fade-up">Falta muy poco</h2>
-        <div class="countdown-container" id="countdown" data-aos="zoom-in">
-            <div class="time-box"><span id="days">00</span>Días</div>
-            <div class="time-box"><span id="hours">00</span>Hrs</div>
-            <div class="time-box"><span id="minutes">00</span>Min</div>
-            <div class="time-box"><span id="seconds">00</span>Seg</div>
+        <div class="container">
+            <div class="countdown-grid" id="countdown">
+                <div class="time-item"><span id="days">00</span><p>Días</p></div>
+                <div class="time-item"><span id="hours">00</span><p>Hrs</p></div>
+                <div class="time-item"><span id="minutes">00</span><p>Min</p></div>
+                <div class="time-item"><span id="seconds">00</span><p>Seg</p></div>
+            </div>
+            <div class="welcome-text" data-aos="fade-up">
+                <h2>Te Esperamos</h2>
+                <p>Queridos amigos y familiares, los invito a celebrar conmigo este día tan soñado. ¡Quiero compartir con ustedes este momento único e inolvidable!</p>
+            </div>
         </div>
     </section>
 
-    <section class="details-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Dónde & Cuándo</h2>
-            <div class="cards-wrapper">
-                
-                <div class="event-card" data-aos="fade-right">
-                    <div class="icon-box"><i class="fas fa-church"></i></div>
-                    <h3>Ceremonia Religiosa</h3>
-                    <p class="time">17:00 HRS</p>
-                    <p class="location">Parroquia Nuestra Señora</p>
-                    <p class="address">Av. Principal #123, Centro</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn-outline">Ver Ubicación</a>
-                </div>
+    <section class="reservation-section" data-aos="fade-up">
+        <div class="ticket-container">
+            <div class="ticket-header">RESERVACIÓN</div>
+            <div class="ticket-body">
+                <h3 class="guest-name">Familia Pérez López</h3> <p class="ticket-details">4 boletos (2 adultos y 2 niños)</p>
+                <p class="ticket-table">Mesa 5</p>
+                <div class="ticket-note">* Pase personal e intransferible</div>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Años&dates=20260425T170000/20260426T020000" target="_blank" class="calendar-btn">
+                    <i class="far fa-calendar-plus"></i> Añadir a mi calendario
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="event-card" data-aos="fade-left">
-                    <div class="icon-box"><i class="fas fa-glass-cheers"></i></div>
+    <section class="dresscode-section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Código de Vestimenta</h2>
+            <p class="dress-subtitle">Formal Riguroso</p>
+            
+            <div class="dress-grid">
+                <div class="dress-item">
+                    <div class="dress-icon"><i class="fas fa-female"></i></div>
+                    <h3>Mujeres</h3>
+                    <p>Vestido Largo</p>
+                    <p class="dress-note">(Evitar color rosa)</p>
+                </div>
+                <div class="dress-item">
+                    <div class="dress-icon"><i class="fas fa-male"></i></div>
+                    <h3>Hombres</h3>
+                    <p>Traje y Corbata</p>
+                </div>
+            </div>
+            
+            <div class="forbidden-colors">
+                <p>Colores reservados:</p>
+                <div class="color-circle" style="background:#ffc0cb;"></div>
+                <div class="color-circle" style="background:white; border:1px solid #ddd;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section">
+        
+        <div class="event-block" data-aos="fade-right">
+            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1548625361-1979d02df752?auto=format&fit=crop&q=80');"></div>
+            <div class="event-info">
+                <h3>Ceremonia</h3>
+                <p class="place">Parroquia San Agustín</p>
+                <p class="address">Av. Horacio 921, Polanco, CDMX</p>
+                <p class="time">5:30 PM</p>
+                <a href="#" class="map-btn">Ver Mapa</a>
+            </div>
+        </div>
+
+        <div class="event-block reverse" data-aos="fade-left">
+            <div class="event-img" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80');"></div>
+            <div class="event-info">
+                <h3>Recepción</h3>
+                <p class="place">Salón "El Ensueño"</p>
+                <p class="address">Av. Reforma 276, CDMX</p>
+                <p class="time">8:00 PM</p>
+                <a href="#" class="map-btn">Ver Mapa</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="timeline-section" data-aos="fade-up">
+        <h2 class="section-title">Itinerario</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-time">5:00 PM</div>
+                <div class="timeline-content">
+                    <h3>Ceremonia</h3>
+                    <p>¡Acompáñanos a recibir la bendición!</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">7:00 PM</div>
+                <div class="timeline-content">
                     <h3>Recepción</h3>
-                    <p class="time">20:00 HRS</p>
-                    <p class="location">Salón "El Ensueño"</p>
-                    <p class="address">Calle Las Rosas #450</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn-outline">Ver Ubicación</a>
+                    <p>¡Tómate fotos con nosotros!</p>
                 </div>
+            </div>
 
+            <div class="timeline-item">
+                <div class="timeline-time">8:00 PM</div>
+                <div class="timeline-content">
+                    <h3>Cena</h3>
+                    <p>Disfruta de una deliciosa cena.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">9:00 PM</div>
+                <div class="timeline-content">
+                    <h3>Vals</h3>
+                    <p>Nuestro primer baile.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">2:00 AM</div>
+                <div class="timeline-content">
+                    <h3>Fin</h3>
+                    <p>Gracias por estar con nosotros.</p>
+                </div>
+            </div>
+
+        </div>
+        <p class="punctuality-note">Se agradece su puntualidad.</p>
+    </section>
+
+    <section class="gifts-section" data-aos="zoom-in">
+        <h2 class="section-title">Mesa de Regalos</h2>
+        <div class="gift-grid">
+            <div class="gift-card">
+                <i class="fas fa-envelope-open-text"></i>
+                <h3>Lluvia de Sobres</h3>
+                <p>Contaremos con un buzón para sobres en la recepción.</p>
+            </div>
+            <div class="gift-card">
+                <i class="fas fa-university"></i>
+                <h3>Transferencia</h3>
+                <p>BBVA: 1234 5678 9012</p>
+                <p>A nombre de: María Paz</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="family-section" data-aos="fade-up">
+        <h2 class="section-title">Con la bendición de</h2>
+        <div class="family-grid">
+            <div class="family-group">
+                <h3>Mis Padres</h3>
+                <p>Juan Pérez & Ana López</p>
+            </div>
+            <div class="family-group">
+                <h3>Mis Padrinos</h3>
+                <p>Carlos Ruiz & Diana Gómez</p>
             </div>
         </div>
     </section>
 
     <section class="gallery-section">
-        <h2 class="section-title" data-aos="fade-up">Momentos</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500" alt="Foto 1" data-aos="zoom-in">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=500" alt="Foto 2" data-aos="zoom-in" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1520854221256-17451cc330e7?w=500" alt="Foto 3" data-aos="zoom-in" data-aos-delay="200">
-            <img src="https://images.unsplash.com/photo-1596483726207-6f01cb1d9b30?w=500" alt="Foto 4" data-aos="zoom-in" data-aos-delay="300">
+        <h2 class="section-title">Nuestros Momentos</h2>
+        <div class="gallery-container">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" alt="Foto 1" data-aos="flip-left">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" alt="Foto 2" data-aos="flip-right">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80" alt="Foto 3" data-aos="flip-left">
         </div>
     </section>
 
-    <section class="info-grid">
-        <div class="info-item" data-aos="fade-up">
-            <i class="fas fa-tshirt"></i>
-            <h3>Dress Code</h3>
-            <p>Formal / Etiqueta Rigurosa</p>
-        </div>
-        <div class="info-item" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-gift"></i>
-            <h3>Regalos</h3>
-            <p>Lluvia de sobres (Efectivo)</p>
+    <section class="hotel-section" data-aos="fade-up">
+        <h2 class="section-title">Hospedaje Sugerido</h2>
+        <div class="hotel-card">
+            <h3>Hotel Marriot</h3>
+            <p>Av. Reforma 276, CDMX</p>
+            <p class="hotel-code">Código: MISXV2026</p>
+            <a href="#" class="map-btn small">Ver Ubicación</a>
         </div>
     </section>
 
-    <section class="rsvp-section">
-        <div class="overlay"></div>
-        <div class="content" data-aos="zoom-in">
-            <h2>Confirmación de Asistencia</h2>
-            <p>Espero contar con tu presencia para celebrar juntos.</p>
-            <a href="https://wa.me/521123456789?text=Hola,%20confirmo%20mi%20asistencia" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Confirmar Asistencia
+    <section class="rsvp-final">
+        <div class="content">
+            <h2 data-aos="fade-down">Confirmar Asistencia</h2>
+            <p>Por favor confirma antes del 5 de Abril.</p>
+            
+            <a href="https://wa.me/5215500000000?text=Hola,%20confirmo%20mi%20asistencia" class="whatsapp-btn big-btn">
+                <i class="fab fa-whatsapp"></i> Enviar Confirmación
             </a>
+            
+            <div class="quote-final">
+                <p>“There is no remedy for love but to love more.”</p>
+                <span>– Henry David Thoreau</span>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>Mis XV Años - María Paz | 2026</p>
+        <p>Mis XV Años | María Paz 2026</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
